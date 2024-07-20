@@ -1,6 +1,7 @@
 package com.ninni.twigs.data;
 
 import com.ninni.twigs.data.tags.TwigsBlockTagProvider;
+import com.ninni.twigs.data.tags.TwigsEntityTypeTagProvider;
 import com.ninni.twigs.data.tags.TwigsItemTagProvider;
 import com.ninni.twigs.registry.TwigsConfiguredFeatures;
 import com.ninni.twigs.registry.TwigsPlacedFeatures;
@@ -19,13 +20,14 @@ public class TwigsDataGenerator implements DataGeneratorEntrypoint {
         pack.addProvider(TwigsConfiguredFeatureProvider::new);
         pack.addProvider(TwigsPlacedFeatureProvider::new);
 
-        // (ender) No, I don't think there is a nicer way of doing this :(
+        // (ender) I don't know if there is a nicer way of doing this
         AtomicReference<TwigsBlockTagProvider> blockTags = new AtomicReference<>();
         pack.addProvider((o, r) -> {
             blockTags.set(new TwigsBlockTagProvider(o, r));
             return blockTags.get();
         });
         pack.addProvider((o, r) -> new TwigsItemTagProvider(o, r, blockTags.get()));
+        pack.addProvider(TwigsEntityTypeTagProvider::new);
     }
 
     @Override
