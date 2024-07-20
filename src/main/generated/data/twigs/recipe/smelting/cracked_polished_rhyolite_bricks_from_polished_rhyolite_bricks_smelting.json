@@ -4,9 +4,9 @@
   "cookingtime": 200,
   "experience": 0.1,
   "ingredient": {
-    "item": "twigs:cracked_polished_bloodstone_bricks"
+    "item": "twigs:polished_rhyolite_bricks"
   },
   "result": {
-    "id": "twigs:polished_bloodstone_bricks"
+    "id": "twigs:cracked_polished_rhyolite_bricks"
   }
 }

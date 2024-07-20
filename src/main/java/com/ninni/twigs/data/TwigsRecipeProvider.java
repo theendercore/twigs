@@ -62,7 +62,7 @@ public class TwigsRecipeProvider extends FabricRecipeProvider {
                 TwigsBlocks.POLISHED_RHYOLITE_BRICK_SLAB, TwigsBlocks.POLISHED_RHYOLITE_BRICK_STAIRS, TwigsBlocks.POLISHED_RHYOLITE_BRICK_WALL,
                 TwigsBlocks.POLISHED_RHYOLITE, TwigsBlocks.RHYOLITE);
 
-        quickSmeltingRecipe(exporter, TwigsBlocks.POLISHED_RHYOLITE_BRICKS, TwigsBlocks.CRACKED_POLISHED_RHYOLITE_BRICKS);
+        quickSmeltingRecipe(exporter, TwigsBlocks.CRACKED_POLISHED_RHYOLITE_BRICKS, TwigsBlocks.POLISHED_RHYOLITE_BRICKS);
     }
 
     private void schistRecipes(RecipeOutput exporter) {
@@ -85,7 +85,7 @@ public class TwigsRecipeProvider extends FabricRecipeProvider {
                 TwigsBlocks.POLISHED_SCHIST_BRICK_SLAB, TwigsBlocks.POLISHED_SCHIST_BRICK_STAIRS, TwigsBlocks.POLISHED_SCHIST_BRICK_WALL,
                 TwigsBlocks.POLISHED_SCHIST, TwigsBlocks.SCHIST);
 
-        quickSmeltingRecipe(exporter, TwigsBlocks.POLISHED_SCHIST_BRICKS, TwigsBlocks.CRACKED_POLISHED_SCHIST_BRICKS);
+        quickSmeltingRecipe(exporter, TwigsBlocks.CRACKED_POLISHED_SCHIST_BRICKS, TwigsBlocks.POLISHED_SCHIST_BRICKS);
     }
 
     private void bloodstoneRecipes(RecipeOutput exporter) {
@@ -93,9 +93,9 @@ public class TwigsRecipeProvider extends FabricRecipeProvider {
                 .pattern("#I")
                 .pattern("I#")
                 .define('#', Items.QUARTZ)
-                .define('I', Items.IRON_INGOT)
+                .define('I', Items.IRON_NUGGET)
                 .unlockedBy("has_red_sand", has(Blocks.RED_SAND))
-                .unlockedBy("has_clay_ball", has(Items.IRON_INGOT))
+                .unlockedBy("has_iron_nugget", has(Items.IRON_NUGGET))
                 .save(exporter);
 
         quickSlabStairsWallRecipe(exporter,
@@ -108,7 +108,7 @@ public class TwigsRecipeProvider extends FabricRecipeProvider {
                 TwigsBlocks.POLISHED_BLOODSTONE_BRICK_SLAB, TwigsBlocks.POLISHED_BLOODSTONE_BRICK_STAIRS, TwigsBlocks.POLISHED_BLOODSTONE_BRICK_WALL,
                 TwigsBlocks.POLISHED_BLOODSTONE, TwigsBlocks.BLOODSTONE);
 
-        quickSmeltingRecipe(exporter, TwigsBlocks.POLISHED_BLOODSTONE_BRICKS, TwigsBlocks.CRACKED_POLISHED_BLOODSTONE_BRICKS);
+        quickSmeltingRecipe(exporter, TwigsBlocks.CRACKED_POLISHED_BLOODSTONE_BRICKS, TwigsBlocks.POLISHED_BLOODSTONE_BRICKS);
     }
 
 

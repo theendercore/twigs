@@ -4,9 +4,9 @@
   "cookingtime": 200,
   "experience": 0.1,
   "ingredient": {
-    "item": "twigs:cracked_polished_schist_bricks"
+    "item": "twigs:polished_schist_bricks"
   },
   "result": {
-    "id": "twigs:polished_schist_bricks"
+    "id": "twigs:cracked_polished_schist_bricks"
   }
 }
