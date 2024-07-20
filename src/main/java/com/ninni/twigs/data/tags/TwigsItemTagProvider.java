@@ -1,6 +1,5 @@
 package com.ninni.twigs.data.tags;
 
-import com.ninni.twigs.Twigs;
 import com.ninni.twigs.TwigsTags;
 import com.ninni.twigs.registry.TwigsItems;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;

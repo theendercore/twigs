@@ -22,7 +22,6 @@ import net.minecraft.world.level.levelgen.structure.placement.RandomSpreadType;
 import net.minecraft.world.level.levelgen.structure.pools.StructurePoolElement;
 import net.minecraft.world.level.levelgen.structure.pools.StructureTemplatePool;
 
-import java.util.Map;
 import java.util.concurrent.CompletableFuture;
 
 import static com.ninni.twigs.Twigs.MOD_ID;
