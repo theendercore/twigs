@@ -30,8 +30,6 @@ import net.minecraft.world.level.levelgen.structure.templatesystem.BlockIgnorePr
 import net.minecraft.world.level.levelgen.structure.templatesystem.StructurePlaceSettings;
 import net.minecraft.world.level.levelgen.structure.templatesystem.StructureTemplateManager;
 
-import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.List;
 
 public class ObeliskGenerator {

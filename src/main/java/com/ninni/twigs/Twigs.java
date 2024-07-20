@@ -1,19 +1,7 @@
 package com.ninni.twigs;
 
 import com.google.common.reflect.Reflection;
-import com.ninni.twigs.entity.Pebble;
-import com.ninni.twigs.registry.TwigsBiomeModifier;
-import com.ninni.twigs.registry.TwigsBlockEntityType;
-import com.ninni.twigs.registry.TwigsBlocks;
-import com.ninni.twigs.registry.TwigsCreativeModeTab;
-import com.ninni.twigs.registry.TwigsEntityTypes;
-import com.ninni.twigs.registry.TwigsFeatures;
-import com.ninni.twigs.registry.TwigsItems;
-import com.ninni.twigs.registry.TwigsLootTableAdditions;
-import com.ninni.twigs.registry.TwigsParticleTypes;
-import com.ninni.twigs.registry.TwigsSoundEvents;
-import com.ninni.twigs.registry.TwigsStructurePieceTypes;
-import com.ninni.twigs.registry.TwigsStructureTypes;
+import com.ninni.twigs.registry.*;
 import com.ninni.twigs.stat.TwigsStats;
 import net.fabricmc.api.ModInitializer;
 import net.fabricmc.fabric.api.registry.OxidizableBlocksRegistry;

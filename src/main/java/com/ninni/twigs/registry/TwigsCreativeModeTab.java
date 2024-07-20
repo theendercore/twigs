@@ -12,7 +12,6 @@ import net.minecraft.world.item.CreativeModeTabs;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.level.block.Blocks;
 
-import static com.ninni.twigs.Twigs.MOD_ID;
 import static com.ninni.twigs.registry.TwigsItems.*;
 
 public class TwigsCreativeModeTab {
