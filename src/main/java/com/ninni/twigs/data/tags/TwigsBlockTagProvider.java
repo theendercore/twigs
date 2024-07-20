@@ -1,6 +1,7 @@
 package com.ninni.twigs.data.tags;
 
 import com.ninni.twigs.TwigsTags;
+import com.ninni.twigs.data.TwigsDataGenerator;
 import com.ninni.twigs.registry.TwigsBlocks;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricTagProvider;
@@ -15,8 +16,6 @@ import net.minecraft.world.level.block.WallBlock;
 
 import java.util.List;
 import java.util.concurrent.CompletableFuture;
-
-import static com.ninni.twigs.Twigs.MOD_ID;
 
 public class TwigsBlockTagProvider extends FabricTagProvider.BlockTagProvider {
     public TwigsBlockTagProvider(FabricDataOutput output, CompletableFuture<HolderLookup.Provider> registriesFuture) {
@@ -67,7 +66,7 @@ public class TwigsBlockTagProvider extends FabricTagProvider.BlockTagProvider {
         var stairsTag = getOrCreateTagBuilder(BlockTags.STAIRS);
         var slabTag = getOrCreateTagBuilder(BlockTags.SLABS);
         var wallTag = getOrCreateTagBuilder(BlockTags.WALLS);
-        for (Block block : getModBlocks()) {
+        for (Block block : TwigsDataGenerator.getModBlocks()) {
             if (block instanceof StairBlock) stairsTag.add(block);
             else if (block instanceof SlabBlock) slabTag.add(block);
             else if (block instanceof WallBlock) wallTag.add(block);
@@ -342,12 +341,4 @@ public class TwigsBlockTagProvider extends FabricTagProvider.BlockTagProvider {
                 .add(TwigsBlocks.WARPED_TABLE);
     }
 
-
-    private List<Block> getModBlocks() {
-        return BuiltInRegistries.BLOCK.stream().filter(block -> getId(block).getNamespace().equals(MOD_ID)).toList();
-    }
-
-    private ResourceLocation getId(Block block) {
-        return BuiltInRegistries.BLOCK.getKey(block);
-    }
 }
