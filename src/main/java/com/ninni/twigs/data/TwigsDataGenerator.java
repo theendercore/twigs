@@ -18,8 +18,6 @@ import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.level.block.Block;
 
 import java.util.List;
-import java.util.concurrent.atomic.AtomicReference;
-
 import static com.ninni.twigs.Twigs.MOD_ID;
 
 public class TwigsDataGenerator implements DataGeneratorEntrypoint {
@@ -34,15 +32,12 @@ public class TwigsDataGenerator implements DataGeneratorEntrypoint {
         pack.addProvider(TwigsChestLootTableProvider::new);
         pack.addProvider(TwigsBlockLootTableProvider::new);
 
-        // (ender) I don't know if there is a nicer way of doing this
-        AtomicReference<TwigsBlockTagProvider> blockTags = new AtomicReference<>();
-        pack.addProvider((o, r) -> {
-            blockTags.set(new TwigsBlockTagProvider(o, r));
-            return blockTags.get();
-        });
-        pack.addProvider((o, r) -> new TwigsItemTagProvider(o, r, blockTags.get()));
+        TwigsBlockTagProvider blockTags = pack.addProvider(TwigsBlockTagProvider::new);
+        pack.addProvider((o, r) -> new TwigsItemTagProvider(o, r, blockTags));
         pack.addProvider(TwigsEntityTypeTagProvider::new);
         pack.addProvider(TwigsBiomeTagProvider::new);
+
+        pack.addProvider(TwigsRecipeProvider::new);
     }
 
     @Override
