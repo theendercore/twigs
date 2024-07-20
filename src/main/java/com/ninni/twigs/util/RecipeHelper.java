@@ -40,7 +40,7 @@ public interface RecipeHelper {
         return id("stonecutting/" + string);
     }
 
-    static void quickStonecuttingRecipe(RecipeOutput output, ItemLike from, ItemLike result, int amount) {
+    static void quickStonecuttingRecipe(RecipeOutput output, ItemLike result, ItemLike from, int amount) {
         SingleItemRecipeBuilder.stonecutting(Ingredient.of(from), BUILDING_BLOCKS, result, amount)
                 .unlockedBy(getHasName(from), has(from))
                 .save(output, cuttingName(result, from));
@@ -72,14 +72,25 @@ public interface RecipeHelper {
 
     // Semi-generic recipes
 
-    static void quickSlabStairsRecipe(RecipeOutput output, ItemLike slab, ItemLike stair, ItemLike input) {
+    static void quick2x2Recipe(RecipeOutput output, ItemLike result, ItemLike input) {
+        ShapedRecipeBuilder.shaped(BUILDING_BLOCKS, result, 4)
+                .pattern("##")
+                .pattern("##")
+                .define('#', input)
+                .unlockedBy(getHasName(input), has(input))
+                .save(output);
+    }
+
+    static void quickSlabRecipe(RecipeOutput output, ItemLike slab, ItemLike input) {
         ShapedRecipeBuilder.shaped(BUILDING_BLOCKS, slab, 6)
                 .pattern("---")
                 .define('-', input)
                 .unlockedBy(getHasName(input), has(input))
                 .save(output);
         quickStonecuttingRecipe(output, slab, input, 2);
+    }
 
+    static void quickStairsRecipe(RecipeOutput output, ItemLike stair, ItemLike input) {
         ShapedRecipeBuilder.shaped(BUILDING_BLOCKS, stair, 4)
                 .pattern("o  ")
                 .pattern("oo ")
@@ -88,21 +99,52 @@ public interface RecipeHelper {
                 .unlockedBy(getHasName(input), has(input))
                 .save(output);
         quickStonecuttingRecipe(output, stair, input, 1);
-
     }
 
-    static void quickSlabStairsWallRecipe(RecipeOutput output, ItemLike slab, ItemLike stair, ItemLike wall, ItemLike input) {
-        quickSlabStairsRecipe(output, slab, stair, input);
-
+    static void quickWallRecipe(RecipeOutput output, ItemLike wall, ItemLike input) {
         ShapedRecipeBuilder.shaped(BUILDING_BLOCKS, wall, 6)
                 .pattern("---")
                 .pattern("---")
                 .define('-', input)
                 .unlockedBy(getHasName(input), has(input))
                 .save(output);
-       quickStonecuttingRecipe(output, wall, input, 1);
+        quickStonecuttingRecipe(output, wall, input, 1);
     }
 
+    static void quickSlabStairsRecipe(RecipeOutput output, ItemLike slab, ItemLike stair, ItemLike input) {
+        quickSlabRecipe(output, slab, input);
+        quickStairsRecipe(output, stair, input);
+    }
+
+    static void quickSlabStairsWallRecipe(RecipeOutput output, ItemLike slab, ItemLike stair, ItemLike wall, ItemLike input) {
+        quickSlabStairsRecipe(output, slab, stair, input);
+        quickWallRecipe(output, wall, input);
+    }
+
+    static void quickPolishedRecipes(RecipeOutput output, ItemLike polished, ItemLike polishedSlab, ItemLike polishedStair, ItemLike raw) {
+        quick2x2Recipe(output, polished, raw);
+        quickStonecuttingRecipe(output, polished, raw, 1);
+
+        quickSlabStairsRecipe(output, polishedSlab, polishedStair, polished);
+        quickStonecuttingRecipe(output, polishedSlab, raw, 2);
+        quickStonecuttingRecipe(output, polishedStair, raw, 1);
+    }
+
+    static void quickPolishedBrickRecipes(RecipeOutput output, ItemLike bricks, ItemLike brickSlab, ItemLike brickStair, ItemLike brickWall, ItemLike polished, ItemLike raw) {
+        quick2x2Recipe(output, bricks, polished);
+        quickStonecuttingRecipe(output, bricks, polished, 1);
+        quickStonecuttingRecipe(output, bricks, raw, 1);
+
+        quickSlabStairsWallRecipe(output, brickSlab, brickStair, brickWall, bricks);
+        quickStonecuttingRecipe(output, brickSlab, raw, 2);
+        quickStonecuttingRecipe(output, brickStair, raw, 1);
+        quickStonecuttingRecipe(output, brickWall, raw, 1);
+
+        quickStonecuttingRecipe(output, brickSlab, polished, 2);
+        quickStonecuttingRecipe(output, brickStair, polished, 1);
+        quickStonecuttingRecipe(output, brickWall, polished, 1);
+
+    }
 
     // Specific recipes
     static void quickTableRecipe(RecipeOutput output, ItemLike result, ItemLike slab, ItemLike fence, ItemLike plank) {

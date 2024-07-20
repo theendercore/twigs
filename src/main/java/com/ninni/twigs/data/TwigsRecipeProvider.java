@@ -12,8 +12,7 @@ import net.minecraft.world.level.block.Blocks;
 
 import java.util.concurrent.CompletableFuture;
 
-import static com.ninni.twigs.util.RecipeHelper.quickSlabStairsWallRecipe;
-import static com.ninni.twigs.util.RecipeHelper.quickTableRecipe;
+import static com.ninni.twigs.util.RecipeHelper.*;
 
 public class TwigsRecipeProvider extends FabricRecipeProvider {
     public TwigsRecipeProvider(FabricDataOutput output, CompletableFuture<HolderLookup.Provider> registriesFuture) {
@@ -24,7 +23,7 @@ public class TwigsRecipeProvider extends FabricRecipeProvider {
     public void buildRecipes(RecipeOutput exporter) {
         tableRecipes(exporter);
 
-
+        rhyoliteRecipes(exporter);
     }
 
     private void tableRecipes(RecipeOutput exporter) {
@@ -42,10 +41,9 @@ public class TwigsRecipeProvider extends FabricRecipeProvider {
     }
 
     private void rhyoliteRecipes(RecipeOutput exporter) {
-
         ShapedRecipeBuilder.shaped(RecipeCategory.BUILDING_BLOCKS, TwigsBlocks.RHYOLITE, 2)
                 .pattern("#R")
-                .pattern("#R")
+                .pattern("R#")
                 .define('#', Items.QUARTZ)
                 .define('R', Blocks.RED_SAND)
                 .unlockedBy("has_quartz", has(Items.QUARTZ))
@@ -55,7 +53,12 @@ public class TwigsRecipeProvider extends FabricRecipeProvider {
         quickSlabStairsWallRecipe(exporter,
                 TwigsBlocks.RHYOLITE_SLAB, TwigsBlocks.RHYOLITE_STAIRS, TwigsBlocks.RHYOLITE_WALL, TwigsBlocks.RHYOLITE);
 
+        quickPolishedRecipes(exporter, TwigsBlocks.POLISHED_RHYOLITE,
+                TwigsBlocks.POLISHED_RHYOLITE_SLAB, TwigsBlocks.POLISHED_RHYOLITE_STAIRS, TwigsBlocks.RHYOLITE);
 
+        quickPolishedBrickRecipes(exporter, TwigsBlocks.POLISHED_RHYOLITE_BRICKS,
+                TwigsBlocks.POLISHED_RHYOLITE_BRICK_SLAB, TwigsBlocks.POLISHED_RHYOLITE_BRICK_STAIRS, TwigsBlocks.POLISHED_RHYOLITE_BRICK_WALL,
+                TwigsBlocks.POLISHED_RHYOLITE, TwigsBlocks.RHYOLITE);
 
     }
 
