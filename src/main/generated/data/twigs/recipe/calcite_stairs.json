@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "key": {
+    "o": {
+      "item": "minecraft:calcite"
+    }
+  },
+  "pattern": [
+    "o  ",
+    "oo ",
+    "ooo"
+  ],
+  "result": {
+    "count": 4,
+    "id": "twigs:calcite_stairs"
+  }
+}
