@@ -20,6 +20,7 @@ public class TwigsDataGenerator implements DataGeneratorEntrypoint {
         FabricDataGenerator.Pack pack = fabricDataGenerator.createPack();
         pack.addProvider(TwigsConfiguredFeatureProvider::new);
         pack.addProvider(TwigsPlacedFeatureProvider::new);
+        pack.addProvider(TwigsStructureProvider::new);
 
         // (ender) I don't know if there is a nicer way of doing this
         AtomicReference<TwigsBlockTagProvider> blockTags = new AtomicReference<>();
@@ -36,5 +37,9 @@ public class TwigsDataGenerator implements DataGeneratorEntrypoint {
     public void buildRegistry(RegistrySetBuilder registryBuilder) {
         registryBuilder.add(Registries.CONFIGURED_FEATURE, TwigsConfiguredFeatures::bootstrap);
         registryBuilder.add(Registries.PLACED_FEATURE, TwigsPlacedFeatures::bootstrap);
+
+        registryBuilder.add(Registries.STRUCTURE, TwigsStructureProvider::bootstrapStructures);
+        registryBuilder.add(Registries.TEMPLATE_POOL, TwigsStructureProvider::bootstrapTemplatePools);
+        registryBuilder.add(Registries.STRUCTURE_SET, TwigsStructureProvider::bootstrapStructureSets);
     }
 }
