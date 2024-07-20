@@ -1,5 +1,4 @@
 {
-  "replace": false,
   "values": [
     "twigs:lamp",
     "twigs:soul_lamp",
@@ -35,9 +34,6 @@
     "twigs:weeping_polished_blackstone_brick_stairs",
     "twigs:weeping_polished_blackstone_brick_slab",
     "twigs:weeping_polished_blackstone_brick_wall",
-    "twigs:tuff_stairs",
-    "twigs:tuff_slab",
-    "twigs:tuff_wall",
     "twigs:polished_tuff",
     "twigs:polished_tuff_stairs",
     "twigs:polished_tuff_slab",

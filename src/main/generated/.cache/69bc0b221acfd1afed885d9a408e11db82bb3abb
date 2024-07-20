@@ -1,0 +1,14 @@
+// 1.21	2024-07-20T13:32:37.943571831	Twigs/Tags for minecraft:block
+0f272983a157bea31392a17708ff6cae52275e01 data/minecraft/tags/block/replaceable_by_trees.json
+0f272983a157bea31392a17708ff6cae52275e01 data/minecraft/tags/block/replaceable.json
+09620d4cf563c8fc87466bca3f0530140f260de3 data/minecraft/tags/block/flower_pots.json
+09b092c64fc5ef3fb0fd55e2f2d5549a3adf47a9 data/minecraft/tags/block/mineable/pickaxe.json
+96c4fae30aa703fb8bb48d3c8dfb126468677f35 data/minecraft/tags/block/stairs.json
+bb490d6298d60add7923fd01e6b2279cef2909d0 data/minecraft/tags/block/slabs.json
+d98f5087086b742d3310c4356bbf4ef824764bb6 data/minecraft/tags/block/mineable/axe.json
+0a287cae50cab461a71caf3f1b50eb5534b193d9 data/minecraft/tags/block/inside_step_sound_blocks.json
+342d1c926630cb925d6eb9d820022ee45fe6c2e2 data/minecraft/tags/block/crystal_sound_blocks.json
+33e68d4e3e1958c8ef642f2af2ae761bb67b7ad3 data/minecraft/tags/block/small_flowers.json
+24d2ac804c89467a50f2f26ab923ac79d8b58ed0 data/minecraft/tags/block/mineable/shovel.json
+b149ca0af955728398901a109a265985c8148fef data/minecraft/tags/block/walls.json
+599791d5ff829d9bc2c89986df8bf789dca7e962 data/minecraft/tags/block/piglin_repellents.json
