@@ -25,6 +25,8 @@ public class TwigsDataGenerator implements DataGeneratorEntrypoint {
         pack.addProvider(TwigsPlacedFeatureProvider::new);
         pack.addProvider(TwigsStructureProvider::new);
 
+        pack.addProvider(TwigsChestLootTableProvider::new);
+
         // (ender) I don't know if there is a nicer way of doing this
         AtomicReference<TwigsBlockTagProvider> blockTags = new AtomicReference<>();
         pack.addProvider((o, r) -> {
