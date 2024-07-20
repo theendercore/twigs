@@ -35,6 +35,7 @@ public interface TwigsTags {
 	TagKey<Block> TABLES_BLOCK = createTag(Registries.BLOCK, "tables");
 
 	//biome tags
+	TagKey<Biome> HAS_STRUCTURE_BLOODSTONE_OBELISK = createTag(Registries.BIOME, "has_structure/bloodstone_obelisk");
 	TagKey<Biome> BLOODSTONE_GENERATES = createTag(Registries.BIOME, "bloodstone_generates");
 	TagKey<Biome> SCHIST_GENERATES = createTag(Registries.BIOME, "schist_generates");
 	TagKey<Biome> SILT_GENERATES = createTag(Registries.BIOME, "silt_generates");

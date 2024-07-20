@@ -1,5 +1,6 @@
 package com.ninni.twigs.data;
 
+import com.ninni.twigs.data.tags.TwigsBiomeTagProvider;
 import com.ninni.twigs.data.tags.TwigsBlockTagProvider;
 import com.ninni.twigs.data.tags.TwigsEntityTypeTagProvider;
 import com.ninni.twigs.data.tags.TwigsItemTagProvider;
@@ -28,6 +29,7 @@ public class TwigsDataGenerator implements DataGeneratorEntrypoint {
         });
         pack.addProvider((o, r) -> new TwigsItemTagProvider(o, r, blockTags.get()));
         pack.addProvider(TwigsEntityTypeTagProvider::new);
+        pack.addProvider(TwigsBiomeTagProvider::new);
     }
 
     @Override
