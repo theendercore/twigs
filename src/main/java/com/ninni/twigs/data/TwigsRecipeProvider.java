@@ -25,6 +25,7 @@ public class TwigsRecipeProvider extends FabricRecipeProvider {
 
         rhyoliteRecipes(exporter);
         schistRecipes(exporter);
+        bloodstoneRecipes(exporter);
     }
 
     private void tableRecipes(RecipeOutput exporter) {
@@ -86,5 +87,29 @@ public class TwigsRecipeProvider extends FabricRecipeProvider {
 
         quickSmeltingRecipe(exporter, TwigsBlocks.POLISHED_SCHIST_BRICKS, TwigsBlocks.CRACKED_POLISHED_SCHIST_BRICKS);
     }
+
+    private void bloodstoneRecipes(RecipeOutput exporter) {
+        ShapedRecipeBuilder.shaped(RecipeCategory.BUILDING_BLOCKS, TwigsBlocks.BLOODSTONE, 2)
+                .pattern("#I")
+                .pattern("I#")
+                .define('#', Items.QUARTZ)
+                .define('I', Items.IRON_INGOT)
+                .unlockedBy("has_red_sand", has(Blocks.RED_SAND))
+                .unlockedBy("has_clay_ball", has(Items.IRON_INGOT))
+                .save(exporter);
+
+        quickSlabStairsWallRecipe(exporter,
+                TwigsBlocks.BLOODSTONE_SLAB, TwigsBlocks.BLOODSTONE_STAIRS, TwigsBlocks.BLOODSTONE_WALL, TwigsBlocks.BLOODSTONE);
+
+        quickPolishedRecipes(exporter, TwigsBlocks.POLISHED_BLOODSTONE,
+                TwigsBlocks.POLISHED_BLOODSTONE_SLAB, TwigsBlocks.POLISHED_BLOODSTONE_STAIRS, TwigsBlocks.BLOODSTONE);
+
+        quickPolishedBrickRecipes(exporter, TwigsBlocks.POLISHED_BLOODSTONE_BRICKS,
+                TwigsBlocks.POLISHED_BLOODSTONE_BRICK_SLAB, TwigsBlocks.POLISHED_BLOODSTONE_BRICK_STAIRS, TwigsBlocks.POLISHED_BLOODSTONE_BRICK_WALL,
+                TwigsBlocks.POLISHED_BLOODSTONE, TwigsBlocks.BLOODSTONE);
+
+        quickSmeltingRecipe(exporter, TwigsBlocks.POLISHED_BLOODSTONE_BRICKS, TwigsBlocks.CRACKED_POLISHED_BLOODSTONE_BRICKS);
+    }
+
 
 }
