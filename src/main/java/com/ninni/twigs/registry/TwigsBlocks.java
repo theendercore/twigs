@@ -2,7 +2,6 @@ package com.ninni.twigs.registry;
 
 import com.ninni.twigs.Twigs;
 import com.ninni.twigs.block.*;
-import com.ninni.twigs.block.SiltPotBlock;
 import net.minecraft.core.Registry;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.resources.ResourceLocation;
@@ -22,7 +21,7 @@ public class TwigsBlocks {
 
     //collectibles
     public static final Block AZALEA_FLOWERS = register("azalea_flowers", new AzaleaFlowersBlock(BlockBehaviour.Properties.of().mapColor(MapColor.PLANT).instabreak().noCollission().noOcclusion().sound(SoundType.MOSS_CARPET)));
-    @SuppressWarnings("unused") public static final Block POTTED_AZALEA_FLOWERS = register("potted_azalea_flowers", new FlowerPotBlock(AZALEA_FLOWERS, BlockBehaviour.Properties.ofFullCopy(Blocks.POTTED_FLOWERING_AZALEA)));
+    public static final Block POTTED_AZALEA_FLOWERS = register("potted_azalea_flowers", new FlowerPotBlock(AZALEA_FLOWERS, BlockBehaviour.Properties.ofFullCopy(Blocks.POTTED_FLOWERING_AZALEA)));
     public static final Block TWIG = register("twig", new FloorItemBlock(BlockBehaviour.Properties.of().mapColor(MapColor.WOOD).instabreak().noOcclusion().sound(SoundType.WOOD).noCollission()));
     public static final Block PEBBLE = register("pebble", new FloorItemBlock(BlockBehaviour.Properties.of().mapColor(MapColor.STONE).instabreak().noOcclusion().noCollission().sound(SoundType.STONE)));
     public static final Block OPALINE_SEASHELL = register("opaline_seashell", new SeashellBlock(BlockBehaviour.Properties.of().mapColor(MapColor.TERRACOTTA_WHITE).instabreak().noOcclusion().sound(TwigsSoundEvents.SEASHELL)));
@@ -324,7 +323,7 @@ public class TwigsBlocks {
     public static final Block BLACK_SILT_SHINGLE_WALL = register("black_silt_shingle_wall", new WallBlock(BlockBehaviour.Properties.ofFullCopy(BLACK_SILT_SHINGLES)));
 
     private static ToIntFunction<BlockState> createLampLightLevel() {
-        return (state) -> (Boolean)state.getValue(BlockStateProperties.LIT) ? 15 : 0;
+        return (state) -> (Boolean) state.getValue(BlockStateProperties.LIT) ? 15 : 0;
     }
 
     private static Block register(String id, Block block) {
