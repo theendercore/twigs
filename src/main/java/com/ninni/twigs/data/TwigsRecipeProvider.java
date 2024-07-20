@@ -24,6 +24,7 @@ public class TwigsRecipeProvider extends FabricRecipeProvider {
         tableRecipes(exporter);
 
         rhyoliteRecipes(exporter);
+        schistRecipes(exporter);
     }
 
     private void tableRecipes(RecipeOutput exporter) {
@@ -61,6 +62,29 @@ public class TwigsRecipeProvider extends FabricRecipeProvider {
                 TwigsBlocks.POLISHED_RHYOLITE, TwigsBlocks.RHYOLITE);
 
         quickSmeltingRecipe(exporter, TwigsBlocks.POLISHED_RHYOLITE_BRICKS, TwigsBlocks.CRACKED_POLISHED_RHYOLITE_BRICKS);
+    }
+
+    private void schistRecipes(RecipeOutput exporter) {
+        ShapedRecipeBuilder.shaped(RecipeCategory.BUILDING_BLOCKS, TwigsBlocks.SCHIST, 2)
+                .pattern("#C")
+                .pattern("C#")
+                .define('#', Items.QUARTZ)
+                .define('C', Items.CLAY_BALL)
+                .unlockedBy("has_red_sand", has(Blocks.RED_SAND))
+                .unlockedBy("has_clay_ball", has(Items.CLAY_BALL))
+                .save(exporter);
+
+        quickSlabStairsWallRecipe(exporter,
+                TwigsBlocks.SCHIST_SLAB, TwigsBlocks.SCHIST_STAIRS, TwigsBlocks.SCHIST_WALL, TwigsBlocks.SCHIST);
+
+        quickPolishedRecipes(exporter, TwigsBlocks.POLISHED_SCHIST,
+                TwigsBlocks.POLISHED_SCHIST_SLAB, TwigsBlocks.POLISHED_SCHIST_STAIRS, TwigsBlocks.SCHIST);
+
+        quickPolishedBrickRecipes(exporter, TwigsBlocks.POLISHED_SCHIST_BRICKS,
+                TwigsBlocks.POLISHED_SCHIST_BRICK_SLAB, TwigsBlocks.POLISHED_SCHIST_BRICK_STAIRS, TwigsBlocks.POLISHED_SCHIST_BRICK_WALL,
+                TwigsBlocks.POLISHED_SCHIST, TwigsBlocks.SCHIST);
+
+        quickSmeltingRecipe(exporter, TwigsBlocks.POLISHED_SCHIST_BRICKS, TwigsBlocks.CRACKED_POLISHED_SCHIST_BRICKS);
     }
 
 }
