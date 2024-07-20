@@ -60,6 +60,7 @@ public class TwigsRecipeProvider extends FabricRecipeProvider {
                 TwigsBlocks.POLISHED_RHYOLITE_BRICK_SLAB, TwigsBlocks.POLISHED_RHYOLITE_BRICK_STAIRS, TwigsBlocks.POLISHED_RHYOLITE_BRICK_WALL,
                 TwigsBlocks.POLISHED_RHYOLITE, TwigsBlocks.RHYOLITE);
 
+        quickSmeltingRecipe(exporter, TwigsBlocks.POLISHED_RHYOLITE_BRICKS, TwigsBlocks.CRACKED_POLISHED_RHYOLITE_BRICKS);
     }
 
 }
