@@ -1,4 +1,4 @@
-package com.ninni.twigs.data;
+package com.ninni.twigs.data.worldgen;
 
 import com.ninni.twigs.registry.TwigsConfiguredFeatures;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;

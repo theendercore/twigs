@@ -1,4 +1,4 @@
-package com.ninni.twigs.data;
+package com.ninni.twigs.data.worldgen;
 
 import com.google.common.collect.ImmutableList;
 import com.mojang.datafixers.util.Pair;
