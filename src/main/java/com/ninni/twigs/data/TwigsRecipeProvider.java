@@ -34,6 +34,8 @@ public class TwigsRecipeProvider extends FabricRecipeProvider {
 
         columnRecipes(exporter);
 
+
+        amethystAndMiscRecipes(exporter);
         cobblestoneBricksRecipes(exporter);
         twistingAndWeepingRecipes(exporter);
         polishedTuffRecipes(exporter);
@@ -179,9 +181,6 @@ public class TwigsRecipeProvider extends FabricRecipeProvider {
     }
 
 
-
-
-
     private void columnRecipes(RecipeOutput exporter) {
         quickColumnRecipe(exporter, TwigsBlocks.QUARTZ_COLUMN, Blocks.QUARTZ_BLOCK);
         quickColumnRecipe(exporter, TwigsBlocks.STONE_COLUMN, Blocks.STONE);
@@ -190,8 +189,34 @@ public class TwigsRecipeProvider extends FabricRecipeProvider {
     }
 
 
+    private void amethystAndMiscRecipes(RecipeOutput exporter) {
+
+        quick2x2Recipe(exporter, TwigsBlocks.POLISHED_AMETHYST, Blocks.AMETHYST_BLOCK);
+        quickStonecuttingRecipe(exporter, TwigsBlocks.POLISHED_AMETHYST, Blocks.AMETHYST_BLOCK, 1);
+
+        quick2x2Recipe(exporter, TwigsBlocks.CUT_AMETHYST, TwigsBlocks.POLISHED_AMETHYST);
+        quickStonecuttingRecipe(exporter, TwigsBlocks.CUT_AMETHYST, TwigsBlocks.POLISHED_AMETHYST, 1);
+        quickStonecuttingRecipe(exporter, TwigsBlocks.CUT_AMETHYST, Blocks.AMETHYST_BLOCK, 1);
 
 
+        ShapedRecipeBuilder.shaped(RecipeCategory.BUILDING_BLOCKS, TwigsBlocks.COMPACTED_DRIPSTONE, 2)
+                .pattern("#")
+                .pattern("#")
+                .define('#', Blocks.POINTED_DRIPSTONE)
+                .unlockedBy("has_pointed_dripstone", has(Blocks.POINTED_DRIPSTONE))
+                .unlockedBy("has_compacted_dripstone", has(TwigsBlocks.COMPACTED_DRIPSTONE))
+                .save(exporter);
+
+
+        ShapedRecipeBuilder.shaped(RecipeCategory.BUILDING_BLOCKS, TwigsBlocks.ROCKY_DIRT, 4)
+                .pattern("#C")
+                .pattern("C#")
+                .define('#', Blocks.DIRT)
+                .define('C', TwigsItems.PEBBLE)
+                .unlockedBy("has_pebble", has(TwigsItems.PEBBLE))
+                .unlockedBy("has_dirt", has(Blocks.DIRT))
+                .save(exporter);
+    }
 
     private void cobblestoneBricksRecipes(RecipeOutput exporter) {
 

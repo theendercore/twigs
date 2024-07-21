@@ -1,16 +1,17 @@
 {
   "type": "minecraft:crafting_shaped",
-  "pattern": [
-    "#",
-    "#"
-  ],
+  "category": "building",
   "key": {
     "#": {
       "item": "minecraft:pointed_dripstone"
     }
   },
+  "pattern": [
+    "#",
+    "#"
+  ],
   "result": {
-    "item": "twigs:compacted_dripstone",
-    "count": 2
+    "count": 2,
+    "id": "twigs:compacted_dripstone"
   }
 }

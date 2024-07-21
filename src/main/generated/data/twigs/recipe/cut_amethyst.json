@@ -1,5 +1,6 @@
 {
   "type": "minecraft:crafting_shaped",
+  "category": "building",
   "key": {
     "#": {
       "item": "twigs:polished_amethyst"
@@ -11,6 +12,6 @@
   ],
   "result": {
     "count": 4,
-    "item": "twigs:cut_amethyst"
+    "id": "twigs:cut_amethyst"
   }
 }

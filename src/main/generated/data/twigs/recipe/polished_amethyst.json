@@ -1,16 +1,17 @@
 {
   "type": "minecraft:crafting_shaped",
-  "pattern": [
-    "##",
-    "##"
-  ],
+  "category": "building",
   "key": {
     "#": {
       "item": "minecraft:amethyst_block"
     }
   },
+  "pattern": [
+    "##",
+    "##"
+  ],
   "result": {
-    "item": "twigs:polished_amethyst",
-    "count": 4
+    "count": 4,
+    "id": "twigs:polished_amethyst"
   }
 }
