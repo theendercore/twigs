@@ -33,6 +33,7 @@ public class TwigsRecipeProvider extends FabricRecipeProvider {
         schistRecipes(exporter);
         rhyoliteRecipes(exporter);
         bloodstoneRecipes(exporter);
+        coloredSiltRecipes(exporter);
     }
 
     private void tableRecipes(RecipeOutput exporter) {
@@ -207,6 +208,90 @@ public class TwigsRecipeProvider extends FabricRecipeProvider {
                 TwigsBlocks.POLISHED_BLOODSTONE, TwigsBlocks.BLOODSTONE);
 
         quickSmeltingRecipe(exporter, TwigsBlocks.CRACKED_POLISHED_BLOODSTONE_BRICKS, TwigsBlocks.POLISHED_BLOODSTONE_BRICKS);
+    }
+
+
+    private void coloredSiltRecipes(RecipeOutput exporter) {
+        quickColoredSiltRecipes(exporter,
+                Items.WHITE_DYE, TwigsBlocks.WHITE_PACKED_SILT,
+                TwigsBlocks.WHITE_SILT_SHINGLES, TwigsBlocks.WHITE_SILT_SHINGLE_STAIRS, TwigsBlocks.WHITE_SILT_SHINGLE_SLAB, TwigsBlocks.WHITE_SILT_SHINGLE_WALL,
+                TwigsBlocks.WHITE_SILT_POT
+        );
+        quickColoredSiltRecipes(exporter,
+                Items.ORANGE_DYE, TwigsBlocks.ORANGE_PACKED_SILT,
+                TwigsBlocks.ORANGE_SILT_SHINGLES, TwigsBlocks.ORANGE_SILT_SHINGLE_STAIRS, TwigsBlocks.ORANGE_SILT_SHINGLE_SLAB, TwigsBlocks.ORANGE_SILT_SHINGLE_WALL,
+                TwigsBlocks.ORANGE_SILT_POT
+        );
+        quickColoredSiltRecipes(exporter,
+                Items.MAGENTA_DYE, TwigsBlocks.MAGENTA_PACKED_SILT,
+                TwigsBlocks.MAGENTA_SILT_SHINGLES, TwigsBlocks.MAGENTA_SILT_SHINGLE_STAIRS, TwigsBlocks.MAGENTA_SILT_SHINGLE_SLAB, TwigsBlocks.MAGENTA_SILT_SHINGLE_WALL,
+                TwigsBlocks.MAGENTA_SILT_POT
+        );
+        quickColoredSiltRecipes(exporter,
+                Items.LIGHT_BLUE_DYE, TwigsBlocks.LIGHT_BLUE_PACKED_SILT,
+                TwigsBlocks.LIGHT_BLUE_SILT_SHINGLES, TwigsBlocks.LIGHT_BLUE_SILT_SHINGLE_STAIRS, TwigsBlocks.LIGHT_BLUE_SILT_SHINGLE_SLAB, TwigsBlocks.LIGHT_BLUE_SILT_SHINGLE_WALL,
+                TwigsBlocks.LIGHT_BLUE_SILT_POT
+        );
+        quickColoredSiltRecipes(exporter,
+                Items.YELLOW_DYE, TwigsBlocks.YELLOW_PACKED_SILT,
+                TwigsBlocks.YELLOW_SILT_SHINGLES, TwigsBlocks.YELLOW_SILT_SHINGLE_STAIRS, TwigsBlocks.YELLOW_SILT_SHINGLE_SLAB, TwigsBlocks.YELLOW_SILT_SHINGLE_WALL,
+                TwigsBlocks.YELLOW_SILT_POT
+        );
+        quickColoredSiltRecipes(exporter,
+                Items.LIME_DYE, TwigsBlocks.LIME_PACKED_SILT,
+                TwigsBlocks.LIME_SILT_SHINGLES, TwigsBlocks.LIME_SILT_SHINGLE_STAIRS, TwigsBlocks.LIME_SILT_SHINGLE_SLAB, TwigsBlocks.LIME_SILT_SHINGLE_WALL,
+                TwigsBlocks.LIME_SILT_POT
+        );
+        quickColoredSiltRecipes(exporter,
+                Items.PINK_DYE, TwigsBlocks.PINK_PACKED_SILT,
+                TwigsBlocks.PINK_SILT_SHINGLES, TwigsBlocks.PINK_SILT_SHINGLE_STAIRS, TwigsBlocks.PINK_SILT_SHINGLE_SLAB, TwigsBlocks.PINK_SILT_SHINGLE_WALL,
+                TwigsBlocks.PINK_SILT_POT
+        );
+        quickColoredSiltRecipes(exporter,
+                Items.GRAY_DYE, TwigsBlocks.GRAY_PACKED_SILT,
+                TwigsBlocks.GRAY_SILT_SHINGLES, TwigsBlocks.GRAY_SILT_SHINGLE_STAIRS, TwigsBlocks.GRAY_SILT_SHINGLE_SLAB, TwigsBlocks.GRAY_SILT_SHINGLE_WALL,
+                TwigsBlocks.GRAY_SILT_POT
+        );
+        quickColoredSiltRecipes(exporter,
+                Items.LIGHT_GRAY_DYE, TwigsBlocks.LIGHT_GRAY_PACKED_SILT,
+                TwigsBlocks.LIGHT_GRAY_SILT_SHINGLES, TwigsBlocks.LIGHT_GRAY_SILT_SHINGLE_STAIRS, TwigsBlocks.LIGHT_GRAY_SILT_SHINGLE_SLAB, TwigsBlocks.LIGHT_GRAY_SILT_SHINGLE_WALL,
+                TwigsBlocks.LIGHT_GRAY_SILT_POT
+        );
+        quickColoredSiltRecipes(exporter,
+                Items.CYAN_DYE, TwigsBlocks.CYAN_PACKED_SILT,
+                TwigsBlocks.CYAN_SILT_SHINGLES, TwigsBlocks.CYAN_SILT_SHINGLE_STAIRS, TwigsBlocks.CYAN_SILT_SHINGLE_SLAB, TwigsBlocks.CYAN_SILT_SHINGLE_WALL,
+                TwigsBlocks.CYAN_SILT_POT
+        );
+        quickColoredSiltRecipes(exporter,
+                Items.PURPLE_DYE, TwigsBlocks.PURPLE_PACKED_SILT,
+                TwigsBlocks.PURPLE_SILT_SHINGLES, TwigsBlocks.PURPLE_SILT_SHINGLE_STAIRS, TwigsBlocks.PURPLE_SILT_SHINGLE_SLAB, TwigsBlocks.PURPLE_SILT_SHINGLE_WALL,
+                TwigsBlocks.PURPLE_SILT_POT
+        );
+        quickColoredSiltRecipes(exporter,
+                Items.BLUE_DYE, TwigsBlocks.BLUE_PACKED_SILT,
+                TwigsBlocks.BLUE_SILT_SHINGLES, TwigsBlocks.BLUE_SILT_SHINGLE_STAIRS, TwigsBlocks.BLUE_SILT_SHINGLE_SLAB, TwigsBlocks.BLUE_SILT_SHINGLE_WALL,
+                TwigsBlocks.BLUE_SILT_POT
+        );
+        quickColoredSiltRecipes(exporter,
+                Items.BROWN_DYE, TwigsBlocks.BROWN_PACKED_SILT,
+                TwigsBlocks.BROWN_SILT_SHINGLES, TwigsBlocks.BROWN_SILT_SHINGLE_STAIRS, TwigsBlocks.BROWN_SILT_SHINGLE_SLAB, TwigsBlocks.BROWN_SILT_SHINGLE_WALL,
+                TwigsBlocks.BROWN_SILT_POT
+        );
+        quickColoredSiltRecipes(exporter,
+                Items.GREEN_DYE, TwigsBlocks.GREEN_PACKED_SILT,
+                TwigsBlocks.GREEN_SILT_SHINGLES, TwigsBlocks.GREEN_SILT_SHINGLE_STAIRS, TwigsBlocks.GREEN_SILT_SHINGLE_SLAB, TwigsBlocks.GREEN_SILT_SHINGLE_WALL,
+                TwigsBlocks.GREEN_SILT_POT
+        );
+        quickColoredSiltRecipes(exporter,
+                Items.RED_DYE, TwigsBlocks.RED_PACKED_SILT,
+                TwigsBlocks.RED_SILT_SHINGLES, TwigsBlocks.RED_SILT_SHINGLE_STAIRS, TwigsBlocks.RED_SILT_SHINGLE_SLAB, TwigsBlocks.RED_SILT_SHINGLE_WALL,
+                TwigsBlocks.RED_SILT_POT
+        );
+        quickColoredSiltRecipes(exporter,
+                Items.BLACK_DYE, TwigsBlocks.BLACK_PACKED_SILT,
+                TwigsBlocks.BLACK_SILT_SHINGLES, TwigsBlocks.BLACK_SILT_SHINGLE_STAIRS, TwigsBlocks.BLACK_SILT_SHINGLE_SLAB, TwigsBlocks.BLACK_SILT_SHINGLE_WALL,
+                TwigsBlocks.BLACK_SILT_POT
+        );
     }
 
 }

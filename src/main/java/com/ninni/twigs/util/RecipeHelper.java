@@ -1,9 +1,7 @@
 package com.ninni.twigs.util;
 
-import net.minecraft.data.recipes.RecipeOutput;
-import net.minecraft.data.recipes.ShapedRecipeBuilder;
-import net.minecraft.data.recipes.SimpleCookingRecipeBuilder;
-import net.minecraft.data.recipes.SingleItemRecipeBuilder;
+import com.ninni.twigs.registry.TwigsBlocks;
+import net.minecraft.data.recipes.*;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.tags.TagKey;
 import net.minecraft.world.item.Item;
@@ -11,6 +9,7 @@ import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraft.world.level.ItemLike;
 
 import static com.ninni.twigs.Twigs.MOD_ID;
+import static com.ninni.twigs.data.TwigsDataGenerator.getId;
 import static net.minecraft.data.recipes.RecipeCategory.BUILDING_BLOCKS;
 import static net.minecraft.data.recipes.RecipeProvider.*;
 
@@ -136,6 +135,16 @@ public interface RecipeHelper {
         quickStonecuttingRecipe(output, polishedStair, raw, 1);
     }
 
+    static void quickPolishedRecipes(RecipeOutput output, ItemLike polished, ItemLike polishedSlab, ItemLike polishedStair, ItemLike polishedWall, ItemLike raw) {
+        quick2x2Recipe(output, polished, raw);
+        quickStonecuttingRecipe(output, polished, raw, 1);
+
+        quickSlabStairsWallRecipe(output, polishedSlab, polishedStair, polishedWall, polished);
+        quickStonecuttingRecipe(output, polishedSlab, raw, 2);
+        quickStonecuttingRecipe(output, polishedStair, raw, 1);
+        quickStonecuttingRecipe(output, polishedWall, raw, 1);
+    }
+
     static void quickPolishedBrickRecipes(RecipeOutput output, ItemLike bricks, ItemLike brickSlab, ItemLike brickStair, ItemLike brickWall, ItemLike polished, ItemLike raw) {
         quick2x2Recipe(output, bricks, polished);
         quickStonecuttingRecipe(output, bricks, polished, 1);
@@ -164,5 +173,50 @@ public interface RecipeHelper {
                 .unlockedBy(getHasName(fence), has(fence))
                 .unlockedBy(getHasName(plank), has(plank))
                 .save(output);
+    }
+
+    static void quickColoredSiltRecipes(RecipeOutput output, ItemLike dye, ItemLike coloredPacked,
+                                        ItemLike coloredShingles, ItemLike coloredShingleStairs, ItemLike coloredShingleSlab, ItemLike coloredShingleWall,
+                                        ItemLike pot
+    ) {
+
+        ShapedRecipeBuilder.shaped(RecipeCategory.BUILDING_BLOCKS, coloredPacked, 8)
+                .pattern("###")
+                .pattern("#X#")
+                .pattern("###")
+                .define('#', TwigsBlocks.PACKED_SILT)
+                .define('X', dye)
+                .group("packed_silt")
+                .unlockedBy("has_packed_silt", has(TwigsBlocks.PACKED_SILT))
+                .unlockedBy("has_dye", has(dye))
+                .save(output, id(getId(coloredPacked.asItem()).getPath() + "_from_packed_silt"));
+        ShapedRecipeBuilder.shaped(RecipeCategory.BUILDING_BLOCKS, coloredShingles, 8)
+                .pattern("###")
+                .pattern("#X#")
+                .pattern("###")
+                .define('#', TwigsBlocks.SILT_SHINGLES)
+                .define('X', dye)
+                .group("silt_shingles")
+                .unlockedBy("has_silt_shingles", has(TwigsBlocks.SILT_SHINGLES))
+                .unlockedBy("has_dye", has(dye))
+                .save(output,id(getId(coloredPacked.asItem()).getPath() + "_from_silt_shingles"));
+
+        quickPolishedRecipes(
+                output,
+                coloredShingles,
+                coloredShingleStairs,
+                coloredShingleSlab,
+                coloredShingleWall,
+                coloredPacked
+        );
+
+        ShapelessRecipeBuilder.shapeless(RecipeCategory.BUILDING_BLOCKS, pot)
+                .requires(TwigsBlocks.SILT_POT)
+                .requires(dye)
+                .unlockedBy("has_silt_pot", has(TwigsBlocks.SILT_POT))
+                .unlockedBy("has_dye", has(dye))
+                .save(output);
+
+
     }
 }
