@@ -23,6 +23,7 @@ public class TwigsRecipeProvider extends FabricRecipeProvider {
     public void buildRecipes(RecipeOutput exporter) {
         tableRecipes(exporter);
 
+        polishedTuffRecipes(exporter);
         calciteRecipes(exporter);
         schistRecipes(exporter);
         rhyoliteRecipes(exporter);
@@ -41,6 +42,17 @@ public class TwigsRecipeProvider extends FabricRecipeProvider {
         quickTableRecipe(exporter, TwigsBlocks.OAK_TABLE, Blocks.OAK_SLAB, Blocks.OAK_FENCE, Blocks.OAK_PLANKS);
         quickTableRecipe(exporter, TwigsBlocks.SPRUCE_TABLE, Blocks.SPRUCE_SLAB, Blocks.SPRUCE_FENCE, Blocks.SPRUCE_PLANKS);
         quickTableRecipe(exporter, TwigsBlocks.WARPED_TABLE, Blocks.WARPED_SLAB, Blocks.WARPED_FENCE, Blocks.WARPED_PLANKS);
+    }
+
+    private void polishedTuffRecipes(RecipeOutput exporter) {
+        quickPolishedRecipes(exporter, TwigsBlocks.POLISHED_TUFF,
+                TwigsBlocks.POLISHED_TUFF_SLAB, TwigsBlocks.POLISHED_TUFF_STAIRS, Blocks.TUFF);
+
+        quickPolishedBrickRecipes(exporter, TwigsBlocks.POLISHED_TUFF_BRICKS,
+                TwigsBlocks.POLISHED_TUFF_BRICK_SLAB, TwigsBlocks.POLISHED_TUFF_BRICK_STAIRS, TwigsBlocks.POLISHED_TUFF_BRICK_WALL,
+                TwigsBlocks.POLISHED_TUFF, Blocks.TUFF);
+
+        quickSmeltingRecipe(exporter, TwigsBlocks.CRACKED_POLISHED_TUFF_BRICKS, TwigsBlocks.POLISHED_TUFF_BRICKS);
     }
 
 
