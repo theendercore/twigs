@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "key": {
+    "o": {
+      "item": "twigs:weeping_polished_blackstone_bricks"
+    }
+  },
+  "pattern": [
+    "o  ",
+    "oo ",
+    "ooo"
+  ],
+  "result": {
+    "count": 4,
+    "id": "twigs:weeping_polished_blackstone_brick_stairs"
+  }
+}

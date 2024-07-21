@@ -3,6 +3,8 @@
   "ingredient": {
     "item": "twigs:weeping_polished_blackstone_bricks"
   },
-  "result": "twigs:weeping_polished_blackstone_brick_stairs",
-  "count": 1
+  "result": {
+    "count": 1,
+    "id": "twigs:weeping_polished_blackstone_brick_wall"
+  }
 }

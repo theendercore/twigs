@@ -23,6 +23,7 @@ public class TwigsRecipeProvider extends FabricRecipeProvider {
     public void buildRecipes(RecipeOutput exporter) {
         tableRecipes(exporter);
 
+        twistingAndWeepingRecipes(exporter);
         polishedTuffRecipes(exporter);
         calciteRecipes(exporter);
         schistRecipes(exporter);
@@ -42,6 +43,41 @@ public class TwigsRecipeProvider extends FabricRecipeProvider {
         quickTableRecipe(exporter, TwigsBlocks.OAK_TABLE, Blocks.OAK_SLAB, Blocks.OAK_FENCE, Blocks.OAK_PLANKS);
         quickTableRecipe(exporter, TwigsBlocks.SPRUCE_TABLE, Blocks.SPRUCE_SLAB, Blocks.SPRUCE_FENCE, Blocks.SPRUCE_PLANKS);
         quickTableRecipe(exporter, TwigsBlocks.WARPED_TABLE, Blocks.WARPED_SLAB, Blocks.WARPED_FENCE, Blocks.WARPED_PLANKS);
+    }
+
+    private void twistingAndWeepingRecipes(RecipeOutput exporter) {
+
+        ShapedRecipeBuilder.shaped(RecipeCategory.BUILDING_BLOCKS, TwigsBlocks.TWISTING_POLISHED_BLACKSTONE_BRICKS, 8)
+                .pattern("###")
+                .pattern("#T#")
+                .pattern("###")
+                .define('#', Blocks.POLISHED_BLACKSTONE_BRICKS)
+                .define('T', Items.TWISTING_VINES)
+                .unlockedBy("has_polished_blackstone_bricks", has(Blocks.POLISHED_BLACKSTONE_BRICKS))
+                .unlockedBy("has_twisting_vines", has(Items.TWISTING_VINES))
+                .save(exporter);
+        quickSlabStairsWallRecipe(exporter,
+                TwigsBlocks.TWISTING_POLISHED_BLACKSTONE_BRICK_SLAB,
+                TwigsBlocks.TWISTING_POLISHED_BLACKSTONE_BRICK_STAIRS,
+                TwigsBlocks.TWISTING_POLISHED_BLACKSTONE_BRICK_WALL,
+                TwigsBlocks.TWISTING_POLISHED_BLACKSTONE_BRICKS
+        );
+
+        ShapedRecipeBuilder.shaped(RecipeCategory.BUILDING_BLOCKS, TwigsBlocks.WEEPING_POLISHED_BLACKSTONE_BRICKS, 8)
+                .pattern("###")
+                .pattern("#W#")
+                .pattern("###")
+                .define('#', Blocks.POLISHED_BLACKSTONE_BRICKS)
+                .define('W', Items.WEEPING_VINES)
+                .unlockedBy("has_polished_blackstone_bricks", has(Blocks.POLISHED_BLACKSTONE_BRICKS))
+                .unlockedBy("has_weeping_vines", has(Items.WEEPING_VINES))
+                .save(exporter);
+        quickSlabStairsWallRecipe(exporter,
+                TwigsBlocks.WEEPING_POLISHED_BLACKSTONE_BRICK_SLAB,
+                TwigsBlocks.WEEPING_POLISHED_BLACKSTONE_BRICK_STAIRS,
+                TwigsBlocks.WEEPING_POLISHED_BLACKSTONE_BRICK_WALL,
+                TwigsBlocks.WEEPING_POLISHED_BLACKSTONE_BRICKS
+        );
     }
 
     private void polishedTuffRecipes(RecipeOutput exporter) {

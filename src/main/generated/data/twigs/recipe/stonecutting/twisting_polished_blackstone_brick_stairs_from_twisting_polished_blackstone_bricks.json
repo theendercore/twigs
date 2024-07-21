@@ -3,6 +3,8 @@
   "ingredient": {
     "item": "twigs:twisting_polished_blackstone_bricks"
   },
-  "result": "twigs:twisting_polished_blackstone_brick_slab",
-  "count": 2
+  "result": {
+    "count": 1,
+    "id": "twigs:twisting_polished_blackstone_brick_stairs"
+  }
 }
