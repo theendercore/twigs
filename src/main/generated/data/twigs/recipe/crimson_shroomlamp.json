@@ -1,10 +1,6 @@
 {
   "type": "minecraft:crafting_shaped",
-  "pattern": [
-    "###",
-    "SSS",
-    "###"
-  ],
+  "category": "misc",
   "key": {
     "#": {
       "item": "minecraft:crimson_planks"
@@ -13,8 +9,13 @@
       "item": "minecraft:shroomlight"
     }
   },
+  "pattern": [
+    "###",
+    "SSS",
+    "###"
+  ],
   "result": {
-    "item": "twigs:crimson_shroomlamp",
-    "count": 1
+    "count": 1,
+    "id": "twigs:crimson_shroomlamp"
   }
 }

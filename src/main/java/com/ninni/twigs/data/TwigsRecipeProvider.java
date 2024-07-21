@@ -25,6 +25,7 @@ public class TwigsRecipeProvider extends FabricRecipeProvider {
     @Override
     public void buildRecipes(RecipeOutput exporter) {
         paperLanternRecipes(exporter);
+        lampRecipes(exporter);
         tableRecipes(exporter);
 
         cobblestoneBricksRecipes(exporter);
@@ -52,6 +53,52 @@ public class TwigsRecipeProvider extends FabricRecipeProvider {
         quickPaperLanternRecipe(exporter, TwigsBlocks.CRIMSON_ROOTS_PAPER_LANTERN, Items.CRIMSON_ROOTS);
         quickPaperLanternRecipe(exporter, TwigsBlocks.DANDELION_PAPER_LANTERN, Items.DANDELION);
         quickPaperLanternRecipe(exporter, TwigsBlocks.TORCHFLOWER_PAPER_LANTERN, Items.TORCHFLOWER);
+    }
+
+    private void lampRecipes(RecipeOutput exporter) {
+        ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, TwigsBlocks.LAMP, 1)
+                .pattern("iii")
+                .pattern("iTi")
+                .pattern("iCi")
+                .define('i', Items.IRON_INGOT)
+                .define('T', Items.TORCH)
+                .define('C', Items.COAL)
+                .unlockedBy("has_iron_ingot", has(Items.IRON_INGOT))
+                .unlockedBy("has_torch", has(Items.TORCH))
+                .unlockedBy("has_coal", has(Items.COAL))
+                .save(exporter);
+
+        ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, TwigsBlocks.SOUL_LAMP, 1)
+                .pattern("iii")
+                .pattern("iSi")
+                .pattern("iFi")
+                .define('i', Items.IRON_INGOT)
+                .define('S', Items.SOUL_TORCH)
+                .define('F', Items.SOUL_SAND)
+                .unlockedBy("has_iron_ingot", has(Items.IRON_INGOT))
+                .unlockedBy("has_soul_torch", has(Items.SOUL_TORCH))
+                .unlockedBy("has_soul_sand", has(Items.SOUL_SAND))
+                .save(exporter);
+
+        ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, TwigsBlocks.WARPED_SHROOMLAMP, 1)
+                .pattern("###")
+                .pattern("SSS")
+                .pattern("###")
+                .define('#', Items.WARPED_PLANKS)
+                .define('S', Items.SHROOMLIGHT)
+                .unlockedBy("has_warped_planks", has(Items.WARPED_PLANKS))
+                .unlockedBy("has_shroomlight", has(Items.SHROOMLIGHT))
+                .save(exporter);
+
+        ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, TwigsBlocks.CRIMSON_SHROOMLAMP, 1)
+                .pattern("###")
+                .pattern("SSS")
+                .pattern("###")
+                .define('#', Items.CRIMSON_PLANKS)
+                .define('S', Items.SHROOMLIGHT)
+                .unlockedBy("has_crimson_planks", has(Items.CRIMSON_PLANKS))
+                .unlockedBy("has_shroomlight", has(Items.SHROOMLIGHT))
+                .save(exporter);
     }
 
     private void tableRecipes(RecipeOutput exporter) {
@@ -143,7 +190,6 @@ public class TwigsRecipeProvider extends FabricRecipeProvider {
         quickSmeltingRecipe(exporter, TwigsBlocks.CRACKED_POLISHED_TUFF_BRICKS, TwigsBlocks.POLISHED_TUFF_BRICKS);
     }
 
-
     private void calciteRecipes(RecipeOutput exporter) {
         quickSlabStairsWallRecipe(exporter,
                 TwigsBlocks.CALCITE_SLAB, TwigsBlocks.CALCITE_STAIRS, TwigsBlocks.CALCITE_WALL, Blocks.CALCITE);
@@ -203,7 +249,6 @@ public class TwigsRecipeProvider extends FabricRecipeProvider {
 
         quickSmeltingRecipe(exporter, TwigsBlocks.CRACKED_POLISHED_RHYOLITE_BRICKS, TwigsBlocks.POLISHED_RHYOLITE_BRICKS);
     }
-
 
     private void bloodstoneRecipes(RecipeOutput exporter) {
         ShapedRecipeBuilder.shaped(RecipeCategory.BUILDING_BLOCKS, TwigsBlocks.BLOODSTONE, 2)
