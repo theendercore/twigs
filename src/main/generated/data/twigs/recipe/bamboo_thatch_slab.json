@@ -1,6 +1,6 @@
 {
   "type": "minecraft:crafting_shaped",
-  "group": "wooden_slab",
+  "category": "building",
   "key": {
     "#": {
       "item": "twigs:bamboo_thatch"
@@ -11,6 +11,6 @@
   ],
   "result": {
     "count": 6,
-    "item": "twigs:bamboo_thatch_slab"
+    "id": "twigs:bamboo_thatch_slab"
   }
 }

@@ -24,6 +24,7 @@ public class TwigsRecipeProvider extends FabricRecipeProvider {
 
     @Override
     public void buildRecipes(RecipeOutput exporter) {
+        bambooRecipes(exporter);
         paperLanternRecipes(exporter);
         lampRecipes(exporter);
         tableRecipes(exporter);
@@ -36,6 +37,30 @@ public class TwigsRecipeProvider extends FabricRecipeProvider {
         rhyoliteRecipes(exporter);
         bloodstoneRecipes(exporter);
         coloredSiltRecipes(exporter);
+    }
+
+    private void bambooRecipes(RecipeOutput exporter) {
+
+        ShapedRecipeBuilder.shaped(RecipeCategory.BUILDING_BLOCKS, TwigsBlocks.BAMBOO_MAT, 2)
+                .pattern("###")
+                .define('#', Items.BAMBOO)
+                .unlockedBy("has_bamboo", has(Items.BAMBOO))
+                .save(exporter);
+
+
+        ShapedRecipeBuilder.shaped(RecipeCategory.BUILDING_BLOCKS, TwigsBlocks.BAMBOO_THATCH_SLAB, 6)
+                .pattern("###")
+                .define('#', TwigsBlocks.BAMBOO_THATCH)
+                .unlockedBy("has_bamboo_thatch", has(TwigsBlocks.BAMBOO_THATCH))
+                .save(exporter);
+
+
+        ShapedRecipeBuilder.shaped(RecipeCategory.BUILDING_BLOCKS, TwigsBlocks.BAMBOO_THATCH, 2)
+                .pattern("##")
+                .pattern("##")
+                .define('#', TwigsBlocks.BAMBOO_LEAVES)
+                .unlockedBy("has_bamboo_leaves", has(TwigsBlocks.BAMBOO_LEAVES))
+                .save(exporter);
     }
 
     private void paperLanternRecipes(RecipeOutput exporter) {

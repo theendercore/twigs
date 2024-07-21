@@ -1,18 +1,11 @@
 {
   "parent": "minecraft:recipes/root",
-  "rewards": {
-    "recipes": [
-      "twigs:bamboo_thatch"
-    ]
-  },
   "criteria": {
     "has_bamboo_leaves": {
       "conditions": {
         "items": [
           {
-            "items": [
-              "twigs:bamboo_leaves"
-            ]
+            "items": "twigs:bamboo_leaves"
           }
         ]
       },
@@ -27,8 +20,13 @@
   },
   "requirements": [
     [
-      "has_bamboo_leaves",
-      "has_the_recipe"
+      "has_the_recipe",
+      "has_bamboo_leaves"
     ]
-  ]
+  ],
+  "rewards": {
+    "recipes": [
+      "twigs:bamboo_thatch"
+    ]
+  }
 }
