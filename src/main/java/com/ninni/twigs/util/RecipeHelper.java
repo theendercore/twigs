@@ -204,8 +204,8 @@ public interface RecipeHelper {
         quickPolishedRecipes(
                 output,
                 coloredShingles,
-                coloredShingleStairs,
                 coloredShingleSlab,
+                coloredShingleStairs,
                 coloredShingleWall,
                 coloredPacked
         );

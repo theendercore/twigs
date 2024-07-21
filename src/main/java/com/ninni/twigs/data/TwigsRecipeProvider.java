@@ -210,7 +210,6 @@ public class TwigsRecipeProvider extends FabricRecipeProvider {
         quickSmeltingRecipe(exporter, TwigsBlocks.CRACKED_POLISHED_BLOODSTONE_BRICKS, TwigsBlocks.POLISHED_BLOODSTONE_BRICKS);
     }
 
-
     private void coloredSiltRecipes(RecipeOutput exporter) {
         quickColoredSiltRecipes(exporter,
                 Items.WHITE_DYE, TwigsBlocks.WHITE_PACKED_SILT,

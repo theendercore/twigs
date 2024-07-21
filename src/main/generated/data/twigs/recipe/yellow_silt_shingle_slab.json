@@ -2,17 +2,15 @@
   "type": "minecraft:crafting_shaped",
   "category": "building",
   "key": {
-    "o": {
+    "-": {
       "item": "twigs:yellow_silt_shingles"
     }
   },
   "pattern": [
-    "o  ",
-    "oo ",
-    "ooo"
+    "---"
   ],
   "result": {
-    "count": 4,
+    "count": 6,
     "id": "twigs:yellow_silt_shingle_slab"
   }
 }
