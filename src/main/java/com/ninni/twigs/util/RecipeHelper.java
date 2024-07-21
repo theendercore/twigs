@@ -197,6 +197,18 @@ public interface RecipeHelper {
                 .save(output);
     }
 
+    static void quickColumnRecipe(RecipeOutput output, ItemLike result, ItemLike input) {
+
+       ShapedRecipeBuilder.shaped(BUILDING_BLOCKS, result, 4)
+               .pattern("###")
+               .pattern(" # ")
+               .define('#', input)
+               .unlockedBy(getHasName(input), has(input))
+               .unlockedBy(getHasName(result), has(result))
+               .save(output);
+       quickStonecuttingRecipe(output, result, input, 1);
+    }
+
     static void quickColoredSiltRecipes(RecipeOutput output, ItemLike dye, ItemLike coloredPacked,
                                         ItemLike coloredShingles, ItemLike coloredShingleStairs, ItemLike coloredShingleSlab, ItemLike coloredShingleWall,
                                         ItemLike pot

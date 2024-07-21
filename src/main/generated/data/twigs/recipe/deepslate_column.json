@@ -1,16 +1,17 @@
 {
   "type": "minecraft:crafting_shaped",
-  "pattern": [
-    "###",
-    " # "
-  ],
+  "category": "building",
   "key": {
     "#": {
       "item": "minecraft:deepslate"
     }
   },
+  "pattern": [
+    "###",
+    " # "
+  ],
   "result": {
-    "item": "twigs:deepslate_column",
-    "count": 4
+    "count": 4,
+    "id": "twigs:deepslate_column"
   }
 }

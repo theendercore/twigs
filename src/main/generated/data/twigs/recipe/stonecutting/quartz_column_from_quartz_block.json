@@ -3,6 +3,8 @@
   "ingredient": {
     "item": "minecraft:quartz_block"
   },
-  "result": "twigs:quartz_column",
-  "count": 1
+  "result": {
+    "count": 1,
+    "id": "twigs:quartz_column"
+  }
 }

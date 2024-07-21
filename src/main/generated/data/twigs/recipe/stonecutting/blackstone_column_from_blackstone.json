@@ -3,6 +3,8 @@
   "ingredient": {
     "item": "minecraft:blackstone"
   },
-  "result": "twigs:blackstone_column",
-  "count": 1
+  "result": {
+    "count": 1,
+    "id": "twigs:blackstone_column"
+  }
 }

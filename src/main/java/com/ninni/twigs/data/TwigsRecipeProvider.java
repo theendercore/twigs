@@ -32,6 +32,8 @@ public class TwigsRecipeProvider extends FabricRecipeProvider {
         lampRecipes(exporter);
         tableRecipes(exporter);
 
+        columnRecipes(exporter);
+
         cobblestoneBricksRecipes(exporter);
         twistingAndWeepingRecipes(exporter);
         polishedTuffRecipes(exporter);
@@ -175,6 +177,20 @@ public class TwigsRecipeProvider extends FabricRecipeProvider {
         quickTableRecipe(exporter, TwigsBlocks.SPRUCE_TABLE, Blocks.SPRUCE_SLAB, Blocks.SPRUCE_FENCE, Blocks.SPRUCE_PLANKS);
         quickTableRecipe(exporter, TwigsBlocks.WARPED_TABLE, Blocks.WARPED_SLAB, Blocks.WARPED_FENCE, Blocks.WARPED_PLANKS);
     }
+
+
+
+
+
+    private void columnRecipes(RecipeOutput exporter) {
+        quickColumnRecipe(exporter, TwigsBlocks.QUARTZ_COLUMN, Blocks.QUARTZ_BLOCK);
+        quickColumnRecipe(exporter, TwigsBlocks.STONE_COLUMN, Blocks.STONE);
+        quickColumnRecipe(exporter, TwigsBlocks.DEEPSLATE_COLUMN, Blocks.DEEPSLATE);
+        quickColumnRecipe(exporter, TwigsBlocks.BLACKSTONE_COLUMN, Blocks.BLACKSTONE);
+    }
+
+
+
 
 
     private void cobblestoneBricksRecipes(RecipeOutput exporter) {

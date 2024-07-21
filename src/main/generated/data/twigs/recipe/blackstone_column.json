@@ -1,16 +1,17 @@
 {
   "type": "minecraft:crafting_shaped",
-  "pattern": [
-    "###",
-    " # "
-  ],
+  "category": "building",
   "key": {
     "#": {
       "item": "minecraft:blackstone"
     }
   },
+  "pattern": [
+    "###",
+    " # "
+  ],
   "result": {
-    "item": "twigs:blackstone_column",
-    "count": 4
+    "count": 4,
+    "id": "twigs:blackstone_column"
   }
 }

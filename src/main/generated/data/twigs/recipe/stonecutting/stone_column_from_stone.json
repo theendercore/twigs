@@ -3,6 +3,8 @@
   "ingredient": {
     "item": "minecraft:stone"
   },
-  "result": "twigs:stone_column",
-  "count": 1
+  "result": {
+    "count": 1,
+    "id": "twigs:stone_column"
+  }
 }
