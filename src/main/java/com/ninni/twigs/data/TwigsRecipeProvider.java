@@ -1,6 +1,7 @@
 package com.ninni.twigs.data;
 
 import com.ninni.twigs.registry.TwigsBlocks;
+import com.ninni.twigs.registry.TwigsItems;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricRecipeProvider;
 import net.minecraft.core.HolderLookup;
@@ -24,6 +25,17 @@ public class TwigsRecipeProvider extends FabricRecipeProvider {
 
     @Override
     public void buildRecipes(RecipeOutput exporter) {
+        ShapelessRecipeBuilder.shapeless(RecipeCategory.DECORATIONS, TwigsBlocks.AZALEA_FLOWERS, 6)
+                .requires(Blocks.FLOWERING_AZALEA_LEAVES)
+                .unlockedBy("has_azalea_leaves", has(Blocks.FLOWERING_AZALEA_LEAVES))
+                .save(exporter, ResourceLocation.fromNamespaceAndPath(MOD_ID, "azalea_flowers_from_flowering_azalea_leaves"));
+
+        ShapelessRecipeBuilder.shapeless(RecipeCategory.DECORATIONS, TwigsBlocks.AZALEA_FLOWERS, 6)
+                .requires(Blocks.FLOWERING_AZALEA)
+                .unlockedBy("has_azalea", has(Blocks.FLOWERING_AZALEA))
+                .save(exporter, ResourceLocation.fromNamespaceAndPath(MOD_ID, "azalea_flowers_from_flowering_azalea"));
+
+
         bambooRecipes(exporter);
         paperLanternRecipes(exporter);
         lampRecipes(exporter);
