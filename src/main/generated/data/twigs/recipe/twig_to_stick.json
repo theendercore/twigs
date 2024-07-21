@@ -1,6 +1,6 @@
 {
   "type": "minecraft:crafting_shapeless",
-  "group": "sticks",
+  "category": "building",
   "ingredients": [
     {
       "item": "twigs:twig"
@@ -8,6 +8,6 @@
   ],
   "result": {
     "count": 2,
-    "item": "minecraft:stick"
+    "id": "minecraft:stick"
   }
 }

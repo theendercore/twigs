@@ -1,5 +1,6 @@
 {
   "type": "minecraft:crafting_shaped",
+  "category": "building",
   "key": {
     "#": {
       "item": "twigs:pebble"
@@ -10,6 +11,7 @@
     "##"
   ],
   "result": {
-    "item": "minecraft:cobblestone"
+    "count": 1,
+    "id": "minecraft:cobblestone"
   }
 }

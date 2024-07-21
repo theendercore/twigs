@@ -1,6 +1,8 @@
 package com.ninni.twigs.data;
 
+import com.ninni.twigs.TwigsTags;
 import com.ninni.twigs.registry.TwigsBlocks;
+import com.ninni.twigs.registry.TwigsItems;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricRecipeProvider;
 import net.minecraft.core.HolderLookup;
@@ -24,7 +26,7 @@ public class TwigsRecipeProvider extends FabricRecipeProvider {
 
     @Override
     public void buildRecipes(RecipeOutput exporter) {
-        miscRecipes(exporter);
+        collectiblesRecipes(exporter);
         bambooRecipes(exporter);
         paperLanternRecipes(exporter);
         lampRecipes(exporter);
@@ -40,7 +42,7 @@ public class TwigsRecipeProvider extends FabricRecipeProvider {
         coloredSiltRecipes(exporter);
     }
 
-    private void miscRecipes(RecipeOutput exporter) {
+    private void collectiblesRecipes(RecipeOutput exporter) {
         ShapelessRecipeBuilder.shapeless(RecipeCategory.BUILDING_BLOCKS, TwigsBlocks.AZALEA_FLOWERS, 6)
                 .requires(Blocks.FLOWERING_AZALEA_LEAVES)
                 .unlockedBy("has_azalea_leaves", has(Blocks.FLOWERING_AZALEA_LEAVES))
@@ -51,7 +53,24 @@ public class TwigsRecipeProvider extends FabricRecipeProvider {
                 .unlockedBy("has_azalea", has(Blocks.FLOWERING_AZALEA))
                 .save(exporter, ResourceLocation.fromNamespaceAndPath(MOD_ID, "azalea_flowers_from_flowering_azalea"));
 
+        ShapelessRecipeBuilder.shapeless(RecipeCategory.BUILDING_BLOCKS, Items.STICK, 2)
+                .requires(TwigsItems.TWIG)
+                .unlockedBy("has_twig", has(TwigsItems.TWIG))
+                .save(exporter, ResourceLocation.fromNamespaceAndPath(MOD_ID, "twig_to_stick"));
 
+        ShapedRecipeBuilder.shaped(RecipeCategory.BUILDING_BLOCKS, Items.COBBLESTONE, 1)
+                .pattern("##")
+                .pattern("##")
+                .define('#', TwigsItems.PEBBLE)
+                .unlockedBy("has_pebble", has(TwigsItems.PEBBLE))
+                .save(exporter, ResourceLocation.fromNamespaceAndPath(MOD_ID, "cobblestone_from_pebble"));
+
+
+        ShapedRecipeBuilder.shaped(RecipeCategory.BUILDING_BLOCKS, Items.BONE_MEAL, 3)
+                .pattern("#")
+                .define('#', TwigsTags.SEASHELLS)
+                .unlockedBy("has_seashells", has(TwigsTags.SEASHELLS))
+                .save(exporter, ResourceLocation.fromNamespaceAndPath(MOD_ID, "bone_meal_from_seashells"));
 
     }
 
