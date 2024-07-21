@@ -174,6 +174,13 @@ public interface RecipeHelper {
                 .unlockedBy(getHasName(plank), has(plank))
                 .save(output);
     }
+    static void quickPaperLanternRecipe(RecipeOutput output, ItemLike result, ItemLike plant) {
+        ShapelessRecipeBuilder.shapeless(BUILDING_BLOCKS, result, 1)
+                .requires(TwigsBlocks.PAPER_LANTERN)
+                .requires(plant)
+                .unlockedBy(getHasName(TwigsBlocks.PAPER_LANTERN), has(TwigsBlocks.PAPER_LANTERN))
+                .save(output);
+    }
 
     static void quickColoredSiltRecipes(RecipeOutput output, ItemLike dye, ItemLike coloredPacked,
                                         ItemLike coloredShingles, ItemLike coloredShingleStairs, ItemLike coloredShingleSlab, ItemLike coloredShingleWall,

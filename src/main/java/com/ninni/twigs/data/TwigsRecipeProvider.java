@@ -24,6 +24,7 @@ public class TwigsRecipeProvider extends FabricRecipeProvider {
 
     @Override
     public void buildRecipes(RecipeOutput exporter) {
+        paperLanternRecipes(exporter);
         tableRecipes(exporter);
 
         cobblestoneBricksRecipes(exporter);
@@ -34,6 +35,23 @@ public class TwigsRecipeProvider extends FabricRecipeProvider {
         rhyoliteRecipes(exporter);
         bloodstoneRecipes(exporter);
         coloredSiltRecipes(exporter);
+    }
+
+    private void paperLanternRecipes(RecipeOutput exporter) {
+        ShapedRecipeBuilder.shaped(RecipeCategory.BUILDING_BLOCKS, TwigsBlocks.PAPER_LANTERN, 1)
+                .pattern("###")
+                .pattern("#T#")
+                .pattern("###")
+                .define('#', Items.PAPER)
+                .define('T', Items.TORCH)
+                .unlockedBy("has_paper", has(Items.PAPER))
+                .unlockedBy("has_torch", has(Items.TORCH))
+                .save(exporter);
+        quickPaperLanternRecipe(exporter, TwigsBlocks.ALLIUM_PAPER_LANTERN, Items.ALLIUM);
+        quickPaperLanternRecipe(exporter, TwigsBlocks.BLUE_ORCHID_PAPER_LANTERN, Items.BLUE_ORCHID);
+        quickPaperLanternRecipe(exporter, TwigsBlocks.CRIMSON_ROOTS_PAPER_LANTERN, Items.CRIMSON_ROOTS);
+        quickPaperLanternRecipe(exporter, TwigsBlocks.DANDELION_PAPER_LANTERN, Items.DANDELION);
+        quickPaperLanternRecipe(exporter, TwigsBlocks.TORCHFLOWER_PAPER_LANTERN, Items.TORCHFLOWER);
     }
 
     private void tableRecipes(RecipeOutput exporter) {
@@ -208,6 +226,43 @@ public class TwigsRecipeProvider extends FabricRecipeProvider {
                 TwigsBlocks.POLISHED_BLOODSTONE, TwigsBlocks.BLOODSTONE);
 
         quickSmeltingRecipe(exporter, TwigsBlocks.CRACKED_POLISHED_BLOODSTONE_BRICKS, TwigsBlocks.POLISHED_BLOODSTONE_BRICKS);
+    }
+
+    private void siltRecipes(RecipeOutput exporter) {
+        ShapedRecipeBuilder.shaped(RecipeCategory.BUILDING_BLOCKS, TwigsBlocks.SILT, 4)
+                .pattern("DG")
+                .pattern("GD")
+                .define('D', Items.SAND)
+                .define('G', Items.CLAY)
+                .unlockedBy("has_sand", has(Items.SAND))
+                .unlockedBy("has_clay", has(Items.CLAY))
+                .unlockedBy("has_silt", has(TwigsBlocks.SILT))
+                .save(exporter);
+
+        ShapelessRecipeBuilder.shapeless(RecipeCategory.BUILDING_BLOCKS, TwigsBlocks.PACKED_SILT, 4)
+                .requires(TwigsBlocks.SILT)
+                .requires(Items.WHEAT)
+                .unlockedBy("has_wheat", has(Items.WHEAT))
+                .unlockedBy("has_silt", has(TwigsBlocks.SILT))
+                .unlockedBy("has_packed_silt", has(TwigsBlocks.PACKED_SILT))
+                .save(exporter);
+
+        quickPolishedRecipes(
+                exporter,
+                TwigsBlocks.SILT_SHINGLES,
+                TwigsBlocks.SILT_SHINGLE_SLAB, TwigsBlocks.SILT_SHINGLE_STAIRS, TwigsBlocks.SILT_SHINGLE_WALL,
+                TwigsBlocks.PACKED_SILT
+        );
+
+        ShapedRecipeBuilder.shaped(RecipeCategory.BUILDING_BLOCKS, TwigsBlocks.SILT_POT, 0)
+                .pattern("# #")
+                .pattern("# #")
+                .pattern("###")
+                .define('#', TwigsBlocks.SILT_BRICKS)
+                .unlockedBy("has_packed_silt", has(TwigsBlocks.PACKED_SILT))
+                .unlockedBy("has_silt", has(TwigsBlocks.SILT))
+                .save(exporter);
+
     }
 
     private void coloredSiltRecipes(RecipeOutput exporter) {
