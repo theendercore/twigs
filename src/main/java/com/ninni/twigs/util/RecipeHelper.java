@@ -111,6 +111,12 @@ public interface RecipeHelper {
         quickStonecuttingRecipe(output, wall, input, 1);
     }
 
+    static void quickSlabStairsWallStonecuttingRecipe(RecipeOutput output, ItemLike slab, ItemLike stair, ItemLike wall, ItemLike input) {
+        quickStonecuttingRecipe(output, slab, input, 2);
+        quickStonecuttingRecipe(output, stair, input, 1);
+        quickStonecuttingRecipe(output, wall, input, 1);
+    }
+
     static void quickSlabStairsRecipe(RecipeOutput output, ItemLike slab, ItemLike stair, ItemLike input) {
         quickSlabRecipe(output, slab, input);
         quickStairsRecipe(output, stair, input);

@@ -7,11 +7,14 @@ import net.minecraft.core.HolderLookup;
 import net.minecraft.data.recipes.RecipeCategory;
 import net.minecraft.data.recipes.RecipeOutput;
 import net.minecraft.data.recipes.ShapedRecipeBuilder;
+import net.minecraft.data.recipes.ShapelessRecipeBuilder;
+import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.level.block.Blocks;
 
 import java.util.concurrent.CompletableFuture;
 
+import static com.ninni.twigs.Twigs.MOD_ID;
 import static com.ninni.twigs.util.RecipeHelper.*;
 
 public class TwigsRecipeProvider extends FabricRecipeProvider {
@@ -23,6 +26,7 @@ public class TwigsRecipeProvider extends FabricRecipeProvider {
     public void buildRecipes(RecipeOutput exporter) {
         tableRecipes(exporter);
 
+        cobblestoneBricksRecipes(exporter);
         twistingAndWeepingRecipes(exporter);
         polishedTuffRecipes(exporter);
         calciteRecipes(exporter);
@@ -45,8 +49,37 @@ public class TwigsRecipeProvider extends FabricRecipeProvider {
         quickTableRecipe(exporter, TwigsBlocks.WARPED_TABLE, Blocks.WARPED_SLAB, Blocks.WARPED_FENCE, Blocks.WARPED_PLANKS);
     }
 
-    private void twistingAndWeepingRecipes(RecipeOutput exporter) {
+    private void cobblestoneBricksRecipes(RecipeOutput exporter) {
 
+        quick2x2Recipe(exporter, TwigsBlocks.COBBLESTONE_BRICKS, Blocks.COBBLESTONE);
+        quickStonecuttingRecipe(exporter, TwigsBlocks.COBBLESTONE_BRICKS, Blocks.COBBLESTONE, 1);
+
+        quickSlabStairsWallRecipe(exporter,
+                TwigsBlocks.COBBLESTONE_BRICK_SLAB, TwigsBlocks.COBBLESTONE_BRICK_STAIRS, TwigsBlocks.COBBLESTONE_BRICK_WALL,
+                TwigsBlocks.COBBLESTONE_BRICKS);
+        quickSlabStairsWallStonecuttingRecipe(exporter,
+                TwigsBlocks.COBBLESTONE_BRICK_SLAB, TwigsBlocks.COBBLESTONE_BRICK_STAIRS, TwigsBlocks.COBBLESTONE_BRICK_WALL,
+                Blocks.COBBLESTONE);
+        quickSmeltingRecipe(exporter, TwigsBlocks.CRACKED_COBBLESTONE_BRICKS, TwigsBlocks.COBBLESTONE_BRICKS);
+
+        // this is a new recipe yes but it makes sense
+        quick2x2Recipe(exporter, TwigsBlocks.MOSSY_COBBLESTONE_BRICKS, Blocks.MOSSY_COBBLESTONE);
+        ShapelessRecipeBuilder.shapeless(RecipeCategory.BUILDING_BLOCKS, TwigsBlocks.MOSSY_COBBLESTONE_BRICKS)
+                .requires(TwigsBlocks.COBBLESTONE_BRICKS)
+                .requires(Blocks.MOSS_BLOCK)
+                .unlockedBy("has_cobblestone_bricks", has(TwigsBlocks.COBBLESTONE_BRICKS))
+                .unlockedBy("has_moss_block", has(Blocks.MOSS_BLOCK))
+                .save(exporter, ResourceLocation.fromNamespaceAndPath(MOD_ID, "mossy_cobblestone_bricks_from_moss"));
+        quickStonecuttingRecipe(exporter, TwigsBlocks.MOSSY_COBBLESTONE_BRICKS, Blocks.MOSSY_COBBLESTONE, 1);
+        quickSlabStairsWallRecipe(exporter,
+                TwigsBlocks.MOSSY_COBBLESTONE_BRICK_SLAB, TwigsBlocks.MOSSY_COBBLESTONE_BRICK_STAIRS, TwigsBlocks.MOSSY_COBBLESTONE_BRICK_WALL,
+                TwigsBlocks.MOSSY_COBBLESTONE_BRICKS);
+        quickSlabStairsWallStonecuttingRecipe(exporter,
+                TwigsBlocks.MOSSY_COBBLESTONE_BRICK_SLAB, TwigsBlocks.MOSSY_COBBLESTONE_BRICK_STAIRS, TwigsBlocks.MOSSY_COBBLESTONE_BRICK_WALL,
+                Blocks.MOSSY_COBBLESTONE);
+    }
+
+    private void twistingAndWeepingRecipes(RecipeOutput exporter) {
         ShapedRecipeBuilder.shaped(RecipeCategory.BUILDING_BLOCKS, TwigsBlocks.TWISTING_POLISHED_BLACKSTONE_BRICKS, 8)
                 .pattern("###")
                 .pattern("#T#")
