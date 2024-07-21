@@ -50,6 +50,11 @@ public interface RecipeHelper {
                 .unlockedBy(getHasName(from), has(from))
                 .save(output, smeltingName(result, from));
     }
+    static void quickSmeltingRecipe(RecipeOutput output, ItemLike result, ItemLike from, float xp ) {
+        SimpleCookingRecipeBuilder.smelting(Ingredient.of(from), BUILDING_BLOCKS, result, xp, 200)
+                .unlockedBy(getHasName(from), has(from))
+                .save(output, smeltingName(result, from));
+    }
 
     static void quickSmokingRecipe(RecipeOutput output, ItemLike result, ItemLike from) {
         SimpleCookingRecipeBuilder.smoking(Ingredient.of(from), BUILDING_BLOCKS, result, .1f, 100)
@@ -182,6 +187,16 @@ public interface RecipeHelper {
                 .save(output);
     }
 
+    static void quickTrailRecipe(RecipeOutput output, ItemLike result, ItemLike input) {
+        ShapedRecipeBuilder.shaped(BUILDING_BLOCKS, result, 4)
+                .pattern(" #")
+                .pattern("# ")
+                .define('#', input)
+                .unlockedBy(getHasName(input), has(input))
+                .unlockedBy(getHasName(result), has(result))
+                .save(output);
+    }
+
     static void quickColoredSiltRecipes(RecipeOutput output, ItemLike dye, ItemLike coloredPacked,
                                         ItemLike coloredShingles, ItemLike coloredShingleStairs, ItemLike coloredShingleSlab, ItemLike coloredShingleWall,
                                         ItemLike pot
@@ -223,7 +238,5 @@ public interface RecipeHelper {
                 .unlockedBy("has_silt_pot", has(TwigsBlocks.SILT_POT))
                 .unlockedBy("has_dye", has(dye))
                 .save(output);
-
-
     }
 }

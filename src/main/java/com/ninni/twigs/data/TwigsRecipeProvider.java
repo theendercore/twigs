@@ -39,6 +39,7 @@ public class TwigsRecipeProvider extends FabricRecipeProvider {
         schistRecipes(exporter);
         rhyoliteRecipes(exporter);
         bloodstoneRecipes(exporter);
+        siltRecipes(exporter);
         coloredSiltRecipes(exporter);
     }
 
@@ -174,6 +175,7 @@ public class TwigsRecipeProvider extends FabricRecipeProvider {
         quickTableRecipe(exporter, TwigsBlocks.SPRUCE_TABLE, Blocks.SPRUCE_SLAB, Blocks.SPRUCE_FENCE, Blocks.SPRUCE_PLANKS);
         quickTableRecipe(exporter, TwigsBlocks.WARPED_TABLE, Blocks.WARPED_SLAB, Blocks.WARPED_FENCE, Blocks.WARPED_PLANKS);
     }
+
 
     private void cobblestoneBricksRecipes(RecipeOutput exporter) {
 
@@ -334,6 +336,14 @@ public class TwigsRecipeProvider extends FabricRecipeProvider {
     }
 
     private void siltRecipes(RecipeOutput exporter) {
+        ShapedRecipeBuilder.shaped(RecipeCategory.BUILDING_BLOCKS, TwigsBlocks.SILT, 1)
+                .pattern("##")
+                .pattern("##")
+                .define('#', TwigsItems.SILT_BALL)
+                .unlockedBy("has_silt_ball", has(TwigsItems.SILT_BALL))
+                .unlockedBy("has_silt", has(TwigsItems.SILT))
+                .save(exporter, ResourceLocation.fromNamespaceAndPath(MOD_ID, "silt_from_silt_ball"));
+
         ShapedRecipeBuilder.shaped(RecipeCategory.BUILDING_BLOCKS, TwigsBlocks.SILT, 4)
                 .pattern("DG")
                 .pattern("GD")
@@ -359,7 +369,7 @@ public class TwigsRecipeProvider extends FabricRecipeProvider {
                 TwigsBlocks.PACKED_SILT
         );
 
-        ShapedRecipeBuilder.shaped(RecipeCategory.BUILDING_BLOCKS, TwigsBlocks.SILT_POT, 0)
+        ShapedRecipeBuilder.shaped(RecipeCategory.BUILDING_BLOCKS, TwigsBlocks.SILT_POT, 1)
                 .pattern("# #")
                 .pattern("# #")
                 .pattern("###")
@@ -368,6 +378,36 @@ public class TwigsRecipeProvider extends FabricRecipeProvider {
                 .unlockedBy("has_silt", has(TwigsBlocks.SILT))
                 .save(exporter);
 
+        quickSmeltingRecipe(exporter, TwigsItems.SILT_BRICK, TwigsItems.SILT_BALL, .3f);
+
+        ShapedRecipeBuilder.shaped(RecipeCategory.BUILDING_BLOCKS, TwigsBlocks.SILT_BRICKS, 1)
+                .pattern("##")
+                .pattern("##")
+                .define('#', TwigsItems.SILT_BRICK)
+                .unlockedBy("has_silt_brick", has(TwigsItems.SILT_BRICK))
+                .unlockedBy("has_silt_bricks", has(TwigsBlocks.SILT_BRICKS))
+                .save(exporter);
+        quickSlabStairsWallRecipe(exporter, TwigsBlocks.SILT_BRICK_SLAB, TwigsBlocks.SILT_BRICK_STAIRS, TwigsBlocks.SILT_BRICK_WALL,
+                TwigsBlocks.SILT_BRICKS);
+
+        quickSmeltingRecipe(exporter, TwigsBlocks.CRACKED_SILT_BRICKS, TwigsBlocks.SILT_BRICKS);
+
+
+        ShapedRecipeBuilder.shaped(RecipeCategory.BUILDING_BLOCKS, TwigsBlocks.CHISELED_SILT_BRICKS, 1)
+                .pattern("#")
+                .pattern("#")
+                .define('#', TwigsBlocks.SILT_BRICK_SLAB)
+                .unlockedBy("has_silt_brick_slab", has(TwigsBlocks.SILT_BRICK_SLAB))
+                .unlockedBy("has_chiseled_silt_bricks", has(TwigsBlocks.CHISELED_SILT_BRICKS))
+                .save(exporter);
+
+        quickStonecuttingRecipe(exporter, TwigsBlocks.CHISELED_SILT_BRICKS, TwigsBlocks.SILT_BRICKS, 1);
+
+        quick2x2Recipe(exporter, TwigsBlocks.MIXED_SILT_BRICKS, TwigsBlocks.SILT_BRICKS);
+        quickStonecuttingRecipe(exporter, TwigsBlocks.MIXED_SILT_BRICKS, TwigsBlocks.SILT_BRICKS, 1);
+
+        quickTrailRecipe(exporter, TwigsBlocks.SILT_BRICK_TRAIL, TwigsBlocks.SILT_BRICKS);
+        quickStonecuttingRecipe(exporter, TwigsBlocks.SILT_BRICK_TRAIL, TwigsBlocks.SILT_BRICKS, 2);
     }
 
     private void coloredSiltRecipes(RecipeOutput exporter) {
