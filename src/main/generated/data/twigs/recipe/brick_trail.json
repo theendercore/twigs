@@ -1,16 +1,17 @@
 {
   "type": "minecraft:crafting_shaped",
-  "pattern": [
-    "##",
-    "##"
-  ],
+  "category": "building",
   "key": {
     "#": {
       "item": "minecraft:bricks"
     }
   },
+  "pattern": [
+    " #",
+    "# "
+  ],
   "result": {
-    "item": "twigs:mixed_bricks",
-    "count": 4
+    "count": 4,
+    "id": "twigs:brick_trail"
   }
 }

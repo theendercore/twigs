@@ -34,7 +34,7 @@ public class TwigsRecipeProvider extends FabricRecipeProvider {
         lampRecipes(exporter);
         tableRecipes(exporter);
         basaltRecipes(exporter);
-
+        brickRecipes(exporter);
         gravelBricksRecipes(exporter);
         smoothStoneBricksRecipes(exporter);
         columnRecipes(exporter);
@@ -204,6 +204,40 @@ public class TwigsRecipeProvider extends FabricRecipeProvider {
         quickStonecuttingRecipe(exporter, TwigsBlocks.CHISELED_SMOOTH_BASALT_BRICKS, TwigsBlocks.SMOOTH_BASALT_BRICKS, 1);
     }
 
+    private void brickRecipes(RecipeOutput exporter) {
+        quick2x2Recipe(exporter, TwigsBlocks.MIXED_BRICKS, Blocks.BRICKS);
+        quickStonecuttingRecipe(exporter, TwigsBlocks.MIXED_BRICKS, Blocks.BRICKS, 1);
+
+        ShapedRecipeBuilder.shaped(RecipeCategory.BUILDING_BLOCKS, TwigsBlocks.CHISELED_BRICKS, 1)
+                .pattern("#")
+                .pattern("#")
+                .define('#', Blocks.BRICK_SLAB)
+                .unlockedBy("has_brick_slab", has(Blocks.BRICK_SLAB))
+                .unlockedBy("has_chiseled_bricks", has(TwigsBlocks.CHISELED_BRICKS))
+                .save(exporter);
+        quickStonecuttingRecipe(exporter, TwigsBlocks.CHISELED_BRICKS, Blocks.BRICKS, 1);
+
+        quickSmeltingRecipe(exporter, TwigsBlocks.CRACKED_BRICKS, Blocks.BRICKS);
+
+        ShapelessRecipeBuilder.shapeless(RecipeCategory.BUILDING_BLOCKS, TwigsBlocks.MOSSY_BRICKS)
+                .requires(Blocks.BRICKS)
+                .requires(Blocks.MOSS_BLOCK)
+                .unlockedBy("has_bricks", has(Blocks.BRICKS))
+                .unlockedBy("has_moss_block", has(Blocks.MOSS_BLOCK))
+                .save(exporter, ResourceLocation.fromNamespaceAndPath(MOD_ID, "mossy_bricks_from_bricks"));
+        ShapelessRecipeBuilder.shapeless(RecipeCategory.BUILDING_BLOCKS, TwigsBlocks.MOSSY_BRICKS)
+                .requires(Blocks.BRICKS)
+                .requires(Blocks.VINE)
+                .unlockedBy("has_bricks", has(Blocks.BRICKS))
+                .unlockedBy("has_vines", has(Blocks.VINE))
+                .save(exporter, ResourceLocation.fromNamespaceAndPath(MOD_ID, "mossy_bricks_from_vines"));
+        quickSlabStairsWallRecipe(exporter, TwigsBlocks.MOSSY_BRICK_SLAB, TwigsBlocks.MOSSY_BRICK_STAIRS, TwigsBlocks.MOSSY_BRICK_WALL,
+                TwigsBlocks.MOSSY_BRICKS);
+
+        quickTrailRecipe(exporter, TwigsBlocks.BRICK_TRAIL, Blocks.BRICKS);
+        quickStonecuttingRecipe(exporter, TwigsBlocks.BRICK_TRAIL, Blocks.BRICKS, 2);
+
+    }
 
     private void gravelBricksRecipes(RecipeOutput exporter) {
         Block brick = TwigsBlocks.GRAVEL_BRICKS;
