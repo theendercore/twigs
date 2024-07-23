@@ -33,6 +33,7 @@ public class TwigsRecipeProvider extends FabricRecipeProvider {
         paperLanternRecipes(exporter);
         lampRecipes(exporter);
         tableRecipes(exporter);
+        basaltRecipes(exporter);
 
         gravelBricksRecipes(exporter);
         smoothStoneBricksRecipes(exporter);
@@ -183,7 +184,25 @@ public class TwigsRecipeProvider extends FabricRecipeProvider {
         quickTableRecipe(exporter, TwigsBlocks.WARPED_TABLE, Blocks.WARPED_SLAB, Blocks.WARPED_FENCE, Blocks.WARPED_PLANKS);
     }
 
+    private void basaltRecipes(RecipeOutput exporter) {
 
+        quick2x2Recipe(exporter, TwigsBlocks.POLISHED_BASALT_BRICKS, Blocks.POLISHED_BASALT);
+        quickStonecuttingRecipe(exporter, TwigsBlocks.POLISHED_BASALT_BRICKS, Blocks.POLISHED_BASALT, 1);
+
+        quickPolishedRecipes(exporter, TwigsBlocks.SMOOTH_BASALT_BRICKS,
+                TwigsBlocks.SMOOTH_BASALT_BRICK_SLAB, TwigsBlocks.SMOOTH_BASALT_BRICK_STAIRS, TwigsBlocks.SMOOTH_BASALT_BRICK_WALL,
+                Blocks.SMOOTH_BASALT);
+
+        ShapedRecipeBuilder.shaped(RecipeCategory.BUILDING_BLOCKS, TwigsBlocks.CHISELED_SMOOTH_BASALT_BRICKS, 1)
+                .pattern("#")
+                .pattern("#")
+                .define('#', TwigsBlocks.SMOOTH_BASALT_BRICK_SLAB)
+                .unlockedBy("has_smooth_basalt_brick_slab", has(TwigsBlocks.SMOOTH_BASALT_BRICK_SLAB))
+                .unlockedBy("has_chiseled_smooth_basalt_bricks", has(TwigsBlocks.CHISELED_SMOOTH_BASALT_BRICKS))
+                .save(exporter);
+
+        quickStonecuttingRecipe(exporter, TwigsBlocks.CHISELED_SMOOTH_BASALT_BRICKS, TwigsBlocks.SMOOTH_BASALT_BRICKS, 1);
+    }
 
 
     private void gravelBricksRecipes(RecipeOutput exporter) {

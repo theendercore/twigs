@@ -1,17 +1,17 @@
 {
   "type": "minecraft:crafting_shaped",
-  "group": "bark",
-  "pattern": [
-    "##",
-    "##"
-  ],
+  "category": "building",
   "key": {
     "#": {
       "item": "minecraft:polished_basalt"
     }
   },
+  "pattern": [
+    "##",
+    "##"
+  ],
   "result": {
-    "item": "twigs:polished_basalt_bricks",
-    "count": 4
+    "count": 4,
+    "id": "twigs:polished_basalt_bricks"
   }
 }

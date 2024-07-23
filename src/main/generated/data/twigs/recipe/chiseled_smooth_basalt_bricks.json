@@ -1,5 +1,6 @@
 {
   "type": "minecraft:crafting_shaped",
+  "category": "building",
   "key": {
     "#": {
       "item": "twigs:smooth_basalt_brick_slab"
@@ -10,6 +11,7 @@
     "#"
   ],
   "result": {
-    "item": "twigs:chiseled_smooth_basalt_bricks"
+    "count": 1,
+    "id": "twigs:chiseled_smooth_basalt_bricks"
   }
 }
