@@ -1,16 +1,17 @@
 {
   "type": "minecraft:crafting_shaped",
-  "pattern": [
-    "##",
-    "##"
-  ],
+  "category": "building",
   "key": {
     "#": {
       "item": "minecraft:smooth_stone"
     }
   },
+  "pattern": [
+    "##",
+    "##"
+  ],
   "result": {
-    "item": "twigs:smooth_stone_bricks",
-    "count": 4
+    "count": 4,
+    "id": "twigs:smooth_stone_bricks"
   }
 }

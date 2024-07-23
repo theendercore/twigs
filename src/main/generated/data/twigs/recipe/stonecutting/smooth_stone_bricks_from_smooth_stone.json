@@ -3,6 +3,8 @@
   "ingredient": {
     "item": "minecraft:smooth_stone"
   },
-  "result": "twigs:smooth_stone_brick_stairs",
-  "count": 1
+  "result": {
+    "count": 1,
+    "id": "twigs:smooth_stone_bricks"
+  }
 }
