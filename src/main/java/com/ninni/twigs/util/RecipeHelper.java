@@ -22,14 +22,6 @@ public interface RecipeHelper {
         return id("smelting/" + getItemName(item) + "_from_" + getItemName(from) + "_smelting");
     }
 
-    private static ResourceLocation smokingName(ItemLike item, ItemLike from) {
-        return id("smoking/" + getItemName(item) + "_from_" + getItemName(from) + "_smoking");
-    }
-
-    private static ResourceLocation smokingName(ItemLike item, String from) {
-        return id("smoking/" + getItemName(item) + "_from_" + from + "_smoking");
-    }
-
     private static ResourceLocation blastingName(ItemLike item, ItemLike from) {
         return id("blasting/" + getItemName(item) + "_from_" + getItemName(from) + "_blasting");
     }
@@ -55,25 +47,6 @@ public interface RecipeHelper {
                 .unlockedBy(getHasName(from), has(from))
                 .save(output, smeltingName(result, from));
     }
-
-    static void quickSmokingRecipe(RecipeOutput output, ItemLike result, ItemLike from) {
-        SimpleCookingRecipeBuilder.smoking(Ingredient.of(from), BUILDING_BLOCKS, result, .1f, 100)
-                .unlockedBy(getHasName(from), has(from))
-                .save(output, smokingName(result, from));
-    }
-
-    static void quickSmokingRecipe(RecipeOutput output, ItemLike result, TagKey<Item> from) {
-        SimpleCookingRecipeBuilder.smoking(Ingredient.of(from), BUILDING_BLOCKS, result, .1f, 100)
-                .unlockedBy("has_" + from.location().getPath(), has(from))
-                .save(output, smokingName(result, from.location().getPath()));
-    }
-
-    static void quickBlastingRecipe(RecipeOutput output, ItemLike result, ItemLike from) {
-        SimpleCookingRecipeBuilder.blasting(Ingredient.of(from), BUILDING_BLOCKS, result, .1f, 100)
-                .unlockedBy(getHasName(from), has(from))
-                .save(output, blastingName(result, from));
-    }
-
     // Semi-generic recipes
 
     static void quick2x2Recipe(RecipeOutput output, ItemLike result, ItemLike input) {
@@ -198,7 +171,6 @@ public interface RecipeHelper {
     }
 
     static void quickColumnRecipe(RecipeOutput output, ItemLike result, ItemLike input) {
-
        ShapedRecipeBuilder.shaped(BUILDING_BLOCKS, result, 4)
                .pattern("###")
                .pattern(" # ")
@@ -207,6 +179,19 @@ public interface RecipeHelper {
                .unlockedBy(getHasName(result), has(result))
                .save(output);
        quickStonecuttingRecipe(output, result, input, 1);
+    }
+
+    static void quickCopperPillarRecipe(RecipeOutput output, ItemLike pillar, ItemLike cutSlab, ItemLike cutBlock, ItemLike block) {
+        ShapedRecipeBuilder.shaped(BUILDING_BLOCKS, pillar)
+                .pattern("#")
+                .pattern("#")
+                .define('#', cutSlab)
+                .unlockedBy(getHasName(cutSlab), has(cutSlab))
+                .unlockedBy(getHasName(pillar), has(pillar))
+                .save(output);
+
+        quickStonecuttingRecipe(output, pillar, cutBlock, 1);
+        quickStonecuttingRecipe(output, pillar, block, 4);
     }
 
     static void quickColoredSiltRecipes(RecipeOutput output, ItemLike dye, ItemLike coloredPacked,

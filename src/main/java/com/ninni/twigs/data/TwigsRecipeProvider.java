@@ -33,8 +33,7 @@ public class TwigsRecipeProvider extends FabricRecipeProvider {
         tableRecipes(exporter);
 
         columnRecipes(exporter);
-
-
+        copperPillarRecipes(exporter);
         amethystAndMiscRecipes(exporter);
         cobblestoneBricksRecipes(exporter);
         twistingAndWeepingRecipes(exporter);
@@ -188,6 +187,25 @@ public class TwigsRecipeProvider extends FabricRecipeProvider {
         quickColumnRecipe(exporter, TwigsBlocks.BLACKSTONE_COLUMN, Blocks.BLACKSTONE);
     }
 
+    private void copperPillarRecipes(RecipeOutput exporter) {
+        quickCopperPillarRecipe(exporter, TwigsBlocks.COPPER_PILLAR,
+                Blocks.CUT_COPPER, Blocks.CUT_COPPER_SLAB, Blocks.COPPER_BLOCK);
+        quickCopperPillarRecipe(exporter, TwigsBlocks.EXPOSED_COPPER_PILLAR,
+                Blocks.EXPOSED_CUT_COPPER, Blocks.EXPOSED_CUT_COPPER_SLAB, Blocks.EXPOSED_COPPER);
+        quickCopperPillarRecipe(exporter, TwigsBlocks.WEATHERED_COPPER_PILLAR,
+                Blocks.WEATHERED_CUT_COPPER, Blocks.WEATHERED_CUT_COPPER_SLAB, Blocks.WEATHERED_COPPER);
+        quickCopperPillarRecipe(exporter, TwigsBlocks.OXIDIZED_COPPER_PILLAR,
+                Blocks.OXIDIZED_CUT_COPPER, Blocks.OXIDIZED_CUT_COPPER_SLAB, Blocks.OXIDIZED_COPPER);
+
+        quickCopperPillarRecipe(exporter, TwigsBlocks.WAXED_COPPER_PILLAR,
+                Blocks.WAXED_CUT_COPPER, Blocks.WAXED_CUT_COPPER_SLAB, Blocks.WAXED_COPPER_BLOCK);
+        quickCopperPillarRecipe(exporter, TwigsBlocks.WAXED_EXPOSED_COPPER_PILLAR,
+                Blocks.WAXED_EXPOSED_CUT_COPPER, Blocks.WAXED_EXPOSED_CUT_COPPER_SLAB, Blocks.WAXED_EXPOSED_COPPER);
+        quickCopperPillarRecipe(exporter, TwigsBlocks.WAXED_WEATHERED_COPPER_PILLAR,
+                Blocks.WAXED_WEATHERED_CUT_COPPER, Blocks.WAXED_WEATHERED_CUT_COPPER_SLAB, Blocks.WAXED_WEATHERED_COPPER);
+        quickCopperPillarRecipe(exporter, TwigsBlocks.WAXED_OXIDIZED_COPPER_PILLAR,
+                Blocks.WAXED_OXIDIZED_CUT_COPPER, Blocks.WAXED_OXIDIZED_CUT_COPPER_SLAB, Blocks.WAXED_OXIDIZED_COPPER);
+    }
 
     private void amethystAndMiscRecipes(RecipeOutput exporter) {
 
