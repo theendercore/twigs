@@ -12,12 +12,14 @@ import net.minecraft.data.recipes.ShapedRecipeBuilder;
 import net.minecraft.data.recipes.ShapelessRecipeBuilder;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.Items;
+import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
 
 import java.util.concurrent.CompletableFuture;
 
 import static com.ninni.twigs.Twigs.MOD_ID;
 import static com.ninni.twigs.util.RecipeHelper.*;
+import static net.minecraft.data.recipes.RecipeCategory.BUILDING_BLOCKS;
 
 public class TwigsRecipeProvider extends FabricRecipeProvider {
     public TwigsRecipeProvider(FabricDataOutput output, CompletableFuture<HolderLookup.Provider> registriesFuture) {
@@ -32,7 +34,7 @@ public class TwigsRecipeProvider extends FabricRecipeProvider {
         lampRecipes(exporter);
         tableRecipes(exporter);
 
-
+        gravelBricksRecipes(exporter);
         smoothStoneBricksRecipes(exporter);
         columnRecipes(exporter);
         copperPillarRecipes(exporter);
@@ -179,6 +181,36 @@ public class TwigsRecipeProvider extends FabricRecipeProvider {
         quickTableRecipe(exporter, TwigsBlocks.OAK_TABLE, Blocks.OAK_SLAB, Blocks.OAK_FENCE, Blocks.OAK_PLANKS);
         quickTableRecipe(exporter, TwigsBlocks.SPRUCE_TABLE, Blocks.SPRUCE_SLAB, Blocks.SPRUCE_FENCE, Blocks.SPRUCE_PLANKS);
         quickTableRecipe(exporter, TwigsBlocks.WARPED_TABLE, Blocks.WARPED_SLAB, Blocks.WARPED_FENCE, Blocks.WARPED_PLANKS);
+    }
+
+
+
+
+    private void gravelBricksRecipes(RecipeOutput exporter) {
+        Block brick = TwigsBlocks.GRAVEL_BRICKS;
+        quick2x2Recipe(exporter, brick, Blocks.GRAVEL);
+
+        ShapedRecipeBuilder.shaped(BUILDING_BLOCKS, TwigsBlocks.GRAVEL_BRICK_SLAB, 6)
+                .pattern("###")
+                .define('#', brick)
+                .unlockedBy(getHasName(brick), has(brick))
+                .save(exporter);
+
+        ShapedRecipeBuilder.shaped(BUILDING_BLOCKS, TwigsBlocks.GRAVEL_BRICK_STAIRS, 4)
+                .pattern("#  ")
+                .pattern("## ")
+                .pattern("###")
+                .define('#', brick)
+                .unlockedBy(getHasName(brick), has(brick))
+                .save(exporter);
+
+        ShapedRecipeBuilder.shaped(BUILDING_BLOCKS, TwigsBlocks.GRAVEL_BRICK_WALL, 6)
+                .pattern("###")
+                .pattern("###")
+                .define('#', brick)
+                .unlockedBy(getHasName(brick), has(brick))
+                .save(exporter);
+
     }
 
     private void smoothStoneBricksRecipes(RecipeOutput exporter) {

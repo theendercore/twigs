@@ -1,15 +1,16 @@
 {
   "type": "minecraft:crafting_shaped",
-  "pattern": [
-    "###"
-  ],
+  "category": "building",
   "key": {
     "#": {
       "item": "twigs:gravel_bricks"
     }
   },
+  "pattern": [
+    "###"
+  ],
   "result": {
-    "item": "twigs:gravel_brick_slab",
-    "count": 6
+    "count": 6,
+    "id": "twigs:gravel_brick_slab"
   }
 }
