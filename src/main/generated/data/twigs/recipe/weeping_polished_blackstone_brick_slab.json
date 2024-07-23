@@ -2,12 +2,12 @@
   "type": "minecraft:crafting_shaped",
   "category": "building",
   "key": {
-    "-": {
+    "#": {
       "item": "twigs:weeping_polished_blackstone_bricks"
     }
   },
   "pattern": [
-    "---"
+    "###"
   ],
   "result": {
     "count": 6,

@@ -2,14 +2,14 @@
   "type": "minecraft:crafting_shaped",
   "category": "building",
   "key": {
-    "o": {
+    "#": {
       "item": "twigs:blue_silt_shingles"
     }
   },
   "pattern": [
-    "o  ",
-    "oo ",
-    "ooo"
+    "#  ",
+    "## ",
+    "###"
   ],
   "result": {
     "count": 4,

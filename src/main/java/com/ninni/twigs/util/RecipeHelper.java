@@ -3,8 +3,6 @@ package com.ninni.twigs.util;
 import com.ninni.twigs.registry.TwigsBlocks;
 import net.minecraft.data.recipes.*;
 import net.minecraft.resources.ResourceLocation;
-import net.minecraft.tags.TagKey;
-import net.minecraft.world.item.Item;
 import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraft.world.level.ItemLike;
 
@@ -47,8 +45,8 @@ public interface RecipeHelper {
                 .unlockedBy(getHasName(from), has(from))
                 .save(output, smeltingName(result, from));
     }
-    // Semi-generic recipes
 
+    // Semi-generic recipes
     static void quick2x2Recipe(RecipeOutput output, ItemLike result, ItemLike input) {
         ShapedRecipeBuilder.shaped(BUILDING_BLOCKS, result, 4)
                 .pattern("##")
@@ -60,8 +58,8 @@ public interface RecipeHelper {
 
     static void quickSlabRecipe(RecipeOutput output, ItemLike slab, ItemLike input) {
         ShapedRecipeBuilder.shaped(BUILDING_BLOCKS, slab, 6)
-                .pattern("---")
-                .define('-', input)
+                .pattern("###")
+                .define('#', input)
                 .unlockedBy(getHasName(input), has(input))
                 .save(output);
         quickStonecuttingRecipe(output, slab, input, 2);
@@ -69,10 +67,10 @@ public interface RecipeHelper {
 
     static void quickStairsRecipe(RecipeOutput output, ItemLike stair, ItemLike input) {
         ShapedRecipeBuilder.shaped(BUILDING_BLOCKS, stair, 4)
-                .pattern("o  ")
-                .pattern("oo ")
-                .pattern("ooo")
-                .define('o', input)
+                .pattern("#  ")
+                .pattern("## ")
+                .pattern("###")
+                .define('#', input)
                 .unlockedBy(getHasName(input), has(input))
                 .save(output);
         quickStonecuttingRecipe(output, stair, input, 1);
@@ -80,9 +78,9 @@ public interface RecipeHelper {
 
     static void quickWallRecipe(RecipeOutput output, ItemLike wall, ItemLike input) {
         ShapedRecipeBuilder.shaped(BUILDING_BLOCKS, wall, 6)
-                .pattern("---")
-                .pattern("---")
-                .define('-', input)
+                .pattern("###")
+                .pattern("###")
+                .define('#', input)
                 .unlockedBy(getHasName(input), has(input))
                 .save(output);
         quickStonecuttingRecipe(output, wall, input, 1);
