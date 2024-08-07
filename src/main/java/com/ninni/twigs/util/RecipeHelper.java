@@ -142,10 +142,7 @@ public interface RecipeHelper {
         quickStonecuttingRecipe(output, brickStair, raw, 1);
         quickStonecuttingRecipe(output, brickWall, raw, 1);
 
-        quickStonecuttingRecipe(output, brickSlab, polished, 2);
-        quickStonecuttingRecipe(output, brickStair, polished, 1);
-        quickStonecuttingRecipe(output, brickWall, polished, 1);
-
+        quickSlabStairsWallStonecuttingRecipe(output, brickSlab, brickStair, brickWall, polished);
     }
 
     // Specific recipes

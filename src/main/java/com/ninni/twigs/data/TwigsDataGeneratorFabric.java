@@ -40,7 +40,7 @@ public class TwigsDataGeneratorFabric implements DataGeneratorEntrypoint {
 //        pack.addProvider(TwigsEntityTypeTagProvider::new);
 //        pack.addProvider(TwigsBiomeTagProvider::new);
 
-        pack.addProvider(TwigsRecipeProvider::new);
+//        pack.addProvider(TwigsRecipeProvider::new);
     }
 
     @Override
@@ -57,10 +57,5 @@ public class TwigsDataGeneratorFabric implements DataGeneratorEntrypoint {
         return TwigsBlocks.BLOCKS.getEntries().stream().map(RegistryObject::get).toList();
     }
 
-    public static ResourceLocation getId(Block block) {
-        return BuiltInRegistries.BLOCK.getKey(block);
-    }
-    public static ResourceLocation getId(Item item) {
-        return BuiltInRegistries.ITEM.getKey(item);
-    }
+
 }

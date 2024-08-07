@@ -7,8 +7,11 @@ import com.ninni.twigs.data.tags.TwigsEntityTypeTagProvider;
 import com.ninni.twigs.data.tags.TwigsItemTagProvider;
 import com.ninni.twigs.registry.TwigsBlocks;
 import net.minecraft.core.HolderLookup;
+import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.data.DataGenerator;
 import net.minecraft.data.PackOutput;
+import net.minecraft.resources.ResourceLocation;
+import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.Block;
 import net.minecraftforge.common.data.ExistingFileHelper;
 import net.minecraftforge.data.event.GatherDataEvent;
@@ -43,10 +46,19 @@ public class TwigsDataGenerator {
         generator.addProvider(server, new TwigsEntityTypeTagProvider(output, lookupProvider, fileHelper));
         generator.addProvider(server, new TwigsBiomeTagProvider(output, lookupProvider, fileHelper));
 
+        generator.addProvider(server, new TwigsRecipeProvider(output, lookupProvider));
     }
 
     public static List<Block> getModBlocks() {
         return TwigsBlocks.BLOCKS.getEntries().stream().map(RegistryObject::get).toList();
+    }
+
+    public static ResourceLocation getId(Block block) {
+        return BuiltInRegistries.BLOCK.getKey(block);
+    }
+
+    public static ResourceLocation getId(Item item) {
+        return BuiltInRegistries.ITEM.getKey(item);
     }
 
 }
