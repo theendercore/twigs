@@ -8,17 +8,17 @@ import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
 
 @Mod.EventBusSubscriber(modid = Twigs.MOD_ID, bus = Mod.EventBusSubscriber.Bus.MOD)
-public class TwigsDataGenerator {
+public class TwigsDataGeneratorOld {
 
-    private TwigsDataGenerator() {
+    private TwigsDataGeneratorOld() {
     }
 
     @SubscribeEvent
     public static void onGatherData(GatherDataEvent event) {
         DataGenerator generator = event.getGenerator();
         boolean server = event.includeServer();
-        generator.addProvider(server, (DataProvider.Factory<TwigsDatapackBuiltinEntriesProvider>) output ->
-            new TwigsDatapackBuiltinEntriesProvider(output, event.getLookupProvider())
+        generator.addProvider(server, (DataProvider.Factory<TwigsDatapackBuiltinEntriesProviderOld>) output ->
+            new TwigsDatapackBuiltinEntriesProviderOld(output, event.getLookupProvider())
         );
     }
 

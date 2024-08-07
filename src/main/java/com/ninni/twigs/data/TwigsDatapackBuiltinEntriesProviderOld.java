@@ -14,13 +14,13 @@ import net.minecraftforge.registries.ForgeRegistries;
 import java.util.Set;
 import java.util.concurrent.CompletableFuture;
 
-public class TwigsDatapackBuiltinEntriesProvider extends DatapackBuiltinEntriesProvider {
+public class TwigsDatapackBuiltinEntriesProviderOld extends DatapackBuiltinEntriesProvider {
     private static final RegistrySetBuilder BUILDER = new RegistrySetBuilder()
             .add(Registries.CONFIGURED_FEATURE, TwigsConfiguredFeatures::bootstrap)
             .add(Registries.PLACED_FEATURE, TwigsPlacedFeatures::bootstrap)
             .add(ForgeRegistries.Keys.BIOME_MODIFIERS, TwigsBiomeModifier::bootstrap);
 
-    public TwigsDatapackBuiltinEntriesProvider(PackOutput output, CompletableFuture<HolderLookup.Provider> registries) {
+    public TwigsDatapackBuiltinEntriesProviderOld(PackOutput output, CompletableFuture<HolderLookup.Provider> registries) {
         super(output, registries, BUILDER, Set.of(Twigs.MOD_ID));
     }
 
