@@ -1,9 +1,5 @@
 package com.ninni.twigs.data;
 
-import com.ninni.twigs.data.tags.TwigsBiomeTagProvider;
-import com.ninni.twigs.data.tags.TwigsBlockTagProvider;
-import com.ninni.twigs.data.tags.TwigsEntityTypeTagProvider;
-import com.ninni.twigs.data.tags.TwigsItemTagProvider;
 import com.ninni.twigs.data.worldgen.TwigsConfiguredFeatureProvider;
 import com.ninni.twigs.data.worldgen.TwigsPlacedFeatureProvider;
 import com.ninni.twigs.data.worldgen.TwigsStructureProvider;
@@ -13,15 +9,11 @@ import com.ninni.twigs.registry.TwigsPlacedFeatures;
 import net.fabricmc.fabric.api.datagen.v1.DataGeneratorEntrypoint;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataGenerator;
 import net.minecraft.core.RegistrySetBuilder;
-import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.core.registries.Registries;
-import net.minecraft.resources.ResourceLocation;
-import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.Block;
 import net.minecraftforge.registries.RegistryObject;
 
 import java.util.List;
-import static com.ninni.twigs.Twigs.MOD_ID;
 
 public class TwigsDataGeneratorFabric implements DataGeneratorEntrypoint {
 
@@ -33,7 +25,7 @@ public class TwigsDataGeneratorFabric implements DataGeneratorEntrypoint {
         pack.addProvider(TwigsStructureProvider::new);
 
         pack.addProvider(TwigsChestLootTableProvider::new);
-        pack.addProvider(TwigsBlockLootTableProvider::new);
+//        pack.addProvider(TwigsBlockLootSubProvider::new);
 
 //        TwigsBlockTagProvider blockTags = pack.addProvider(TwigsBlockTagProvider::new);
 //        pack.addProvider((o, r) -> new TwigsItemTagProvider(o, r, blockTags));
