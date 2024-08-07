@@ -3,6 +3,7 @@ package com.ninni.twigs.data;
 import com.ninni.twigs.Twigs;
 import com.ninni.twigs.data.tags.TwigsBiomeTagProvider;
 import com.ninni.twigs.data.tags.TwigsBlockTagProvider;
+import com.ninni.twigs.data.tags.TwigsEntityTypeTagProvider;
 import com.ninni.twigs.data.tags.TwigsItemTagProvider;
 import com.ninni.twigs.registry.TwigsBlocks;
 import net.minecraft.core.HolderLookup;
@@ -39,7 +40,7 @@ public class TwigsDataGenerator {
         // Tags
         TwigsBlockTagProvider blockTags = generator.addProvider(server, new TwigsBlockTagProvider(output, lookupProvider, fileHelper));
         generator.addProvider(server, new TwigsItemTagProvider(output, lookupProvider, blockTags.contentsGetter(), fileHelper));
-
+        generator.addProvider(server, new TwigsEntityTypeTagProvider(output, lookupProvider, fileHelper));
         generator.addProvider(server, new TwigsBiomeTagProvider(output, lookupProvider, fileHelper));
 
     }
