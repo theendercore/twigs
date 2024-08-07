@@ -40,6 +40,7 @@ public class TwigsDataGenerator {
         generator.addProvider(server, new TwigsDatapackBuiltinEntriesProviderOld(output, lookupProvider));
 
 
+        generator.addProvider(server, new TwigsChestLootTableProvider(output, lookupProvider));
         generator.addProvider(server, new TwigsBlockLootTableProvider(output, lookupProvider));
 
         // Tags

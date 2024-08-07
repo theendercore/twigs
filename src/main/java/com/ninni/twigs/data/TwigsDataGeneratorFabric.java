@@ -24,7 +24,7 @@ public class TwigsDataGeneratorFabric implements DataGeneratorEntrypoint {
         pack.addProvider(TwigsPlacedFeatureProvider::new);
         pack.addProvider(TwigsStructureProvider::new);
 
-        pack.addProvider(TwigsChestLootTableProvider::new);
+//        pack.addProvider(TwigsChestLootTableProvider::new);
 //        pack.addProvider(TwigsBlockLootSubProvider::new);
 
 //        TwigsBlockTagProvider blockTags = pack.addProvider(TwigsBlockTagProvider::new);
