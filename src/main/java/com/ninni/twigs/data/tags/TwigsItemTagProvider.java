@@ -1,48 +1,51 @@
 package com.ninni.twigs.data.tags;
 
+import com.ninni.twigs.Twigs;
 import com.ninni.twigs.TwigsTags;
 import com.ninni.twigs.registry.TwigsItems;
-import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
-import net.fabricmc.fabric.api.datagen.v1.provider.FabricTagProvider;
 import net.minecraft.core.HolderLookup;
+import net.minecraft.data.PackOutput;
+import net.minecraft.data.tags.ItemTagsProvider;
 import net.minecraft.tags.BlockTags;
 import net.minecraft.tags.ItemTags;
+import net.minecraft.world.level.block.Block;
+import net.minecraftforge.common.data.ExistingFileHelper;
 import org.jetbrains.annotations.Nullable;
 
 import java.util.concurrent.CompletableFuture;
 
-public class TwigsItemTagProvider extends FabricTagProvider.ItemTagProvider {
-    public TwigsItemTagProvider(FabricDataOutput output, CompletableFuture<HolderLookup.Provider> completableFuture, @Nullable FabricTagProvider.BlockTagProvider blockTagProvider) {
-        super(output, completableFuture, blockTagProvider);
+public class TwigsItemTagProvider extends ItemTagsProvider {
+    public TwigsItemTagProvider(PackOutput output, CompletableFuture<HolderLookup.Provider> provider,  CompletableFuture<TagLookup<Block>> blockTags, @Nullable ExistingFileHelper fileHelper) {
+        super(output, provider, blockTags, Twigs.MOD_ID, fileHelper);
     }
 
     @Override
     protected void addTags(HolderLookup.Provider wrapperLookup) {
         copyBlockTags();
-        getOrCreateTagBuilder(TwigsTags.PACKED_SILT_FULL_BLOCKS)
-                .add(TwigsItems.PACKED_SILT)
-                .add(TwigsItems.WHITE_PACKED_SILT)
-                .add(TwigsItems.ORANGE_PACKED_SILT)
-                .add(TwigsItems.MAGENTA_PACKED_SILT)
-                .add(TwigsItems.LIGHT_BLUE_PACKED_SILT)
-                .add(TwigsItems.YELLOW_PACKED_SILT)
-                .add(TwigsItems.LIME_PACKED_SILT)
-                .add(TwigsItems.PINK_PACKED_SILT)
-                .add(TwigsItems.GRAY_PACKED_SILT)
-                .add(TwigsItems.LIGHT_GRAY_PACKED_SILT)
-                .add(TwigsItems.CYAN_PACKED_SILT)
-                .add(TwigsItems.PURPLE_PACKED_SILT)
-                .add(TwigsItems.BLUE_PACKED_SILT)
-                .add(TwigsItems.BROWN_PACKED_SILT)
-                .add(TwigsItems.GREEN_PACKED_SILT)
-                .add(TwigsItems.RED_PACKED_SILT)
-                .add(TwigsItems.BLACK_PACKED_SILT);
+        tag(TwigsTags.PACKED_SILT_FULL_BLOCKS)
+                .add(TwigsItems.PACKED_SILT.get())
+                .add(TwigsItems.WHITE_PACKED_SILT.get())
+                .add(TwigsItems.ORANGE_PACKED_SILT.get())
+                .add(TwigsItems.MAGENTA_PACKED_SILT.get())
+                .add(TwigsItems.LIGHT_BLUE_PACKED_SILT.get())
+                .add(TwigsItems.YELLOW_PACKED_SILT.get())
+                .add(TwigsItems.LIME_PACKED_SILT.get())
+                .add(TwigsItems.PINK_PACKED_SILT.get())
+                .add(TwigsItems.GRAY_PACKED_SILT.get())
+                .add(TwigsItems.LIGHT_GRAY_PACKED_SILT.get())
+                .add(TwigsItems.CYAN_PACKED_SILT.get())
+                .add(TwigsItems.PURPLE_PACKED_SILT.get())
+                .add(TwigsItems.BLUE_PACKED_SILT.get())
+                .add(TwigsItems.BROWN_PACKED_SILT.get())
+                .add(TwigsItems.GREEN_PACKED_SILT.get())
+                .add(TwigsItems.RED_PACKED_SILT.get())
+                .add(TwigsItems.BLACK_PACKED_SILT.get());
 
-        getOrCreateTagBuilder(TwigsTags.SEASHELLS)
-                .add(TwigsItems.BRONZED_SEASHELL)
-                .add(TwigsItems.OPALINE_SEASHELL)
-                .add(TwigsItems.ROSEATE_SEASHELL)
-                .add(TwigsItems.TANGERINE_SEASHELL);
+        tag(TwigsTags.SEASHELLS)
+                .add(TwigsItems.BRONZED_SEASHELL.get())
+                .add(TwigsItems.OPALINE_SEASHELL.get())
+                .add(TwigsItems.ROSEATE_SEASHELL.get())
+                .add(TwigsItems.TANGERINE_SEASHELL.get());
     }
 
     private void copyBlockTags() {
