@@ -409,9 +409,11 @@ public class MiscEvents {
             event.getTable().addPool(
                     LootPool.lootPool()
                             .add(
-                                    // Since enchantments now are dynamically registered
+                                    // Since enchantments now are dynamically registered,
                                     // and we don't have registry access to them, we have to use a table reference
                                     // Unless I(Ender) am very silly this is the only way to do it
+
+                                    // Since I last worked on this fabric fixed it, forge didn't, cuz there cringe
                                     NestedLootTable.lootTableReference(TwigsLootTables.PEBBLE_INJECTION)
                             )
                             .build()
