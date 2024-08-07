@@ -8,9 +8,9 @@ import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
 
 @Mod.EventBusSubscriber(modid = Twigs.MOD_ID, bus = Mod.EventBusSubscriber.Bus.MOD)
-public class TwigsDataGeneratorOld {
+public class TwigsDataGenerator {
 
-    private TwigsDataGeneratorOld() {
+    private TwigsDataGenerator() {
     }
 
     @SubscribeEvent
