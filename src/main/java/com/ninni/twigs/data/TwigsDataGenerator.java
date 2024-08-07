@@ -1,6 +1,7 @@
 package com.ninni.twigs.data;
 
 import com.ninni.twigs.Twigs;
+import com.ninni.twigs.data.tags.TwigsBiomeTagProvider;
 import com.ninni.twigs.data.tags.TwigsBlockTagProvider;
 import com.ninni.twigs.data.tags.TwigsItemTagProvider;
 import com.ninni.twigs.registry.TwigsBlocks;
@@ -23,6 +24,7 @@ public class TwigsDataGenerator {
     private TwigsDataGenerator() {
     }
 
+    @SuppressWarnings("unused")
     @SubscribeEvent
     public static void onGatherData(GatherDataEvent event) {
         DataGenerator generator = event.getGenerator();
@@ -38,6 +40,7 @@ public class TwigsDataGenerator {
         TwigsBlockTagProvider blockTags = generator.addProvider(server, new TwigsBlockTagProvider(output, lookupProvider, fileHelper));
         generator.addProvider(server, new TwigsItemTagProvider(output, lookupProvider, blockTags.contentsGetter(), fileHelper));
 
+        generator.addProvider(server, new TwigsBiomeTagProvider(output, lookupProvider, fileHelper));
 
     }
 
