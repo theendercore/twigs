@@ -23,6 +23,7 @@ import net.minecraft.world.level.storage.loot.functions.SetItemCountFunction;
 import net.minecraft.world.level.storage.loot.predicates.LootItemBlockStatePropertyCondition;
 import net.minecraft.world.level.storage.loot.predicates.LootItemEntityPropertyCondition;
 import net.minecraft.world.level.storage.loot.providers.number.ConstantValue;
+import org.jetbrains.annotations.NotNull;
 
 import java.util.Set;
 
@@ -32,10 +33,14 @@ public class TwigsBlockLootSubProvider extends BlockLootSubProvider {
     }
 
     @Override
+    protected @NotNull Iterable<Block> getKnownBlocks() {
+        return TwigsDataGenerator.getModBlocks();
+    }
+
+    @Override
     public void generate() {
         for (Block block : TwigsDataGenerator.getModBlocks()) {
             if (block == TwigsBlocks.SILT.get()) continue;
-            System.out.println(block);
             switch (block) {
                 case SlabBlock slabBlock -> add(slabBlock, this::createSlabItemTable);
                 case SiltPotBlock siltPotBlock -> add(siltPotBlock, this::createNameableBlockEntityTable);
@@ -47,7 +52,6 @@ public class TwigsBlockLootSubProvider extends BlockLootSubProvider {
                 default -> dropSelf(block);
             }
         }
-        System.out.println("Help :(");
 
         dropPottedContents(TwigsBlocks.POTTED_AZALEA_FLOWERS.get());
         add(TwigsBlocks.SILT.get(), (block) -> createSingleItemTableWithSilkTouch(block, TwigsItems.SILT_BALL.get(), ConstantValue.exactly(4)));
