@@ -48,7 +48,7 @@ public class TwigsBlockLootTableProvider extends LootTableProvider {
 
         @Override
         public void generate() {
-            for (Block block : TwigsDataGeneratorFabric.getModBlocks()) {
+            for (Block block : TwigsDataGenerator.getModBlocks()) {
                 switch (block) {
                     case SlabBlock slabBlock -> add(slabBlock, this::createSlabItemTable);
                     case SiltPotBlock siltPotBlock -> add(siltPotBlock, this::createNameableBlockEntityTable);
